@@ -64,7 +64,6 @@ public class JavaSaveImage{
 	}
 	
 	private static String getURL(){
-		m.find();
-		return m.group();
+		return m.group(1);
 	}
 }
