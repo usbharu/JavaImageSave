@@ -1,3 +1,5 @@
+package harujisaku.javasaveimage;
+
 import java.io.*;
 
 import java.util.regex.*;
