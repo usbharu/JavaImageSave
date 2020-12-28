@@ -10,7 +10,6 @@ import javax.imageio.ImageIO;
 
 public class JavaSaveImage{
 	static String url = "https://www.so-net.ne.jp/search/image/?query=";
-	// static Pattern p = Pattern.compile("<img.*?src\\s*=\\s*[\"|'](.*?)[\"|'].*?>");
 	static Pattern p = Pattern.compile("<a.*?href\\s*=\\s*[\"|'](.*?)[\"|'].*? rel=\"search_result\".*?>");
 	static Matcher m;
 	static String html="";
