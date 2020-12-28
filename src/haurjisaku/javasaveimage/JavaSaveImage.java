@@ -95,7 +95,7 @@ public class JavaSaveImage{
 		}
 		System.out.println(sendUrl);
 		HttpURLConnection connection = (HttpURLConnection) new URL(sendUrl).openConnection();
-		urlcon.setRequestParameter("User-Agent" , "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:84.0) Gecko/20100101 Firefox/84.0");
+		connection.setRequestProperty("User-Agent" , "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:84.0) Gecko/20100101 Firefox/84.0");
 		int responseCode = connection.getResponseCode();
 		InputStream inputStream;
 		if (200 <= responseCode && responseCode <= 299) {
