@@ -23,12 +23,9 @@ public class JavaSaveImage{
 	static Matcher m;
 	static String html="",option="",texts="raspberry pi",path="";
 	static int length=5;
-	static String helpMessage = "-h,-help : help , this message ヘルプ　このメッセージ\r\n-l,-len,-length : length　検索ページの長さ\r\n-o,-option : option　検索エンジンに指定するオプション\r\n\tlanguage,ysp_q,size,end,imtype,format,ss_view,from,q_type,view,adult,start\r\n-t,-text : search text　検索するテキスト";
+	static String helpMessage = "-h,-help : help , this message ヘルプ　このメッセージ\r\n-l,-len,-length : length　検索ページの長さ\r\n-o,-option : option　検索エンジンに指定するオプション\r\n\tlanguage,ysp_q,size,end,imtype,format,ss_view,from,q_type,view,adult,start\r\n-t,-text : search text　検索するテキスト\r\n-p,-path : save path 保存する場所";
 
 	public static void main(String[] args) {
-		for (String str :args ) {
-			System.out.println(str);
-		}
 		int a = 0;
 		if (args.length==0) {
 			System.out.println(helpMessage);
@@ -125,16 +122,10 @@ public class JavaSaveImage{
 
 	private static BufferedImage getImage(String imageURL){
 		try {
-			System.out.println("get");
 			HttpURLConnection urlcon =(HttpURLConnection)new URL(imageURL).openConnection();
-			System.out.println("start connect");
-			// HttpURLConnection urlcon =new HttpURLConnection(imageURL);
-			System.out.println("return image");
 			urlcon.setConnectTimeout(5000);
 			urlcon.setReadTimeout(5000);
-			System.out.println("set timeout");
 			BufferedImage bi =ImageIO.read(urlcon.getInputStream());
-			System.out.println("read");
 			return bi;
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -197,31 +188,5 @@ public class JavaSaveImage{
 			return out;
 		}
 		return bi;
-	}
-	
-	private static void getUserAgent(){
-		try {
-			String sendUrl ="https://testpage.jp/tool/ip_user_agent.php";
-			HttpURLConnection connection = (HttpURLConnection) new URL(sendUrl).openConnection();
-			int responseCode = connection.getResponseCode();
-			InputStream inputStream;
-			if (200 <= responseCode && responseCode <= 299) {
-				inputStream = connection.getInputStream();
-			}else{
-				System.out.println("error");
-				inputStream = connection.getErrorStream();
-			}
-			BufferedReader in = new BufferedReader(new InputStreamReader(inputStream,"UTF-8"));
-			StringBuilder response = new StringBuilder();
-			String currentLine;
-			while((currentLine = in.readLine())!=null){
-				response.append(currentLine);
-			}
-			in.close();
-			System.out.println(response.toString());
-			
-		} catch(Exception e) {
-			
-		}
 	}
 }
