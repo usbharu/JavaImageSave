@@ -1,4 +1,4 @@
-package harujisaku.javasaveimage;
+// package harujisaku.javasaveimage;
 
 import java.io.*;
 
@@ -21,16 +21,16 @@ public class JavaSaveImage{
 	static String url = "https://www.so-net.ne.jp/search/image/";
 	static Pattern p = Pattern.compile("<a.*?href\\s*=\\s*[\"|'](https?://.*?)[\"|'].*? rel=\"search_result\".*?>");
 	static Matcher m;
-	static String html="",option="",texts="raspberry pi",path="";
-	static int length=5;
+	static String html="",option="",texts="raspberry pi",path="",extension="png",extensionName="png";
+	static int length=1;
 	static String helpMessage = "-h,-help : help , this message ヘルプ　このメッセージ\r\n-l,-len,-length : length　検索ページの長さ\r\n-o,-option : option　検索エンジンに指定するオプション\r\n\tlanguage,ysp_q,size,end,imtype,format,ss_view,from,q_type,view,adult,start\r\n-t,-text : search text　検索するテキスト\r\n-p,-path : save path 保存する場所";
 
 	public static void main(String[] args) {
 		int a = 0;
-		if (args.length==0) {
-			System.out.println(helpMessage);
-			return;
-		}
+		// if (args.length==0) {
+		// 	System.out.println(helpMessage);
+		// 	return;
+		// }
 		for (int i=0,len=args.length;i<len ;i++ ) {
 			if ("-h".equals(args[i])||"-help".equals(args[i])) {
 				System.out.println(helpMessage);
@@ -59,7 +59,7 @@ public class JavaSaveImage{
 	
 	private static void save(){
 		m=p.matcher(html);
-		File file = new File(path+"1.jpg");
+		File file = new File(path+"1."+extension);
 		int i=0;
 		while(m.find()){
 			System.out.println(getURL());
@@ -70,11 +70,12 @@ public class JavaSaveImage{
 			try {
 				while(file.exists()){
 					i++;
-					file = new File(path+i+".jpg");
+					file = new File(path+i+"."+extension);
 				}
 				FileOutputStream fo = new FileOutputStream(file);
 				BufferedOutputStream bw = new BufferedOutputStream(fo);
-				saveJpeg(fo,bi,1f,96);
+				// saveJpeg(fo,bi,1f,96);
+				ImageWithDpi.saveImageWithDPI(fo,bi,96,extensionName);
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
@@ -156,12 +157,12 @@ public class JavaSaveImage{
 			param.setCompressionQuality(compression);
 
 			IIOMetadata imageMeta = iw.getDefaultImageMetadata(new ImageTypeSpecifier(img), param);
-			Element tree = (Element) imageMeta.getAsTree("javax_imageio_jpeg_image_1.0");
+			Element tree = (Element) imageMeta.getAsTree("javax_imageio_png_image_1.0");
 			Element jfif = (Element) tree.getElementsByTagName("app0JFIF").item(0);
 			jfif.setAttribute("resUnits", "1");
 			jfif.setAttribute("Xdensity", Integer.toString(dpi));
 			jfif.setAttribute("Ydensity", Integer.toString(dpi));
-			imageMeta.setFromTree("javax_imageio_jpeg_image_1.0", tree);
+			imageMeta.setFromTree("javax_imageio_png_image_1.0", tree);
 			iw.write(null, new IIOImage(img, null, imageMeta), param);
 		} catch (IOException ex) {
 			ex.printStackTrace();
