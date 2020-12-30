@@ -18,14 +18,19 @@ import javax.imageio.metadata.*;
 import org.w3c.dom.*;
 
 public class JavaSaveImage{
-	static String url = "https://www.so-net.ne.jp/search/image/";
-	static Pattern p = Pattern.compile("<a.*?href\\s*=\\s*[\"|'](https?://.*?)[\"|'].*? rel=\"search_result\".*?>");
-	static Matcher m;
-	static String html="",option="",texts="raspberry pi",path="",extension="png",extensionName="png";
-	static int length=1;
-	static String helpMessage = "-h,-help : help , this message ヘルプ　このメッセージ\r\n-l,-len,-length : length　検索ページの長さ\r\n-o,-option : option　検索エンジンに指定するオプション\r\n\tlanguage,ysp_q,size,end,imtype,format,ss_view,from,q_type,view,adult,start\r\n-t,-text : search text　検索するテキスト\r\n-p,-path : save path 保存する場所";
+	String url = "https://www.so-net.ne.jp/search/image/";
+	Pattern p = Pattern.compile("<a.*?href\\s*=\\s*[\"|'](https?://.*?)[\"|'].*? rel=\"search_result\".*?>");
+	Matcher m;
+	String html="",option="",texts="raspberry pi",path="",extension="png";
+	int length=1;
+	boolean isNeedSave=true;
+	String helpMessage = "-h,-help : help , this message ヘルプ　このメッセージ\r\n-l,-len,-length : length　検索ページの長さ\r\n-o,-option : option　検索エンジンに指定するオプション\r\n\tlanguage,ysp_q,size,end,imtype,format,ss_view,from,q_type,view,adult,start\r\n-t,-text : search text　検索するテキスト\r\n-p,-path : save path 保存する場所";
 
 	public static void main(String[] args) {
+		new JavaSaveImage().myMain(args);
+	}
+	
+	private void myMain(String[] args){
 		int a = 0;
 		// if (args.length==0) {
 		// 	System.out.println(helpMessage);
@@ -43,6 +48,17 @@ public class JavaSaveImage{
 				texts=args[++i];
 			}else if ("-p".equals(args[i])||"-path".equals(args[i])) {
 				path=args[++i];
+			}else if("-n".equals(args[i])||"-no-save".equals(args[i])){
+				isNeedSave=false;
+			}else if("-e".equals(args[i])||"-extension".equals(args[i])){
+				if (args[++i].equals("png")||args[i].equals("jpg")||args[i].equals("jpeg")) {
+					extension=args[i];
+				}else{
+					System.out.println("引数指定の誤り : 対応していない形式が指定されました");
+					System.out.println("指定できる形式は以下のとおりです");
+					System.out.println("png,jpg,jpeg");
+					System.out.println(helpMessage);
+				}
 			}else{
 				System.out.println("引数指定の誤り：未知の引数が指定されました");
 				System.out.println(helpMessage);
@@ -57,32 +73,37 @@ public class JavaSaveImage{
 		}
 	}
 	
-	private static void save(){
+	private void save(){
 		m=p.matcher(html);
 		File file = new File(path+"1."+extension);
 		int i=0;
 		while(m.find()){
 			System.out.println(getURL());
-			BufferedImage bi = rotate(getImage(getURL()));
-			if(bi==null){
-				continue;
-			}
-			try {
-				while(file.exists()){
-					i++;
-					file = new File(path+i+"."+extension);
+			if (isNeedSave) {
+				BufferedImage bi = rotate(getImage(getURL()));
+				if(bi==null){
+					continue;
 				}
-				FileOutputStream fo = new FileOutputStream(file);
-				BufferedOutputStream bw = new BufferedOutputStream(fo);
-				// saveJpeg(fo,bi,1f,96);
-				ImageWithDpi.saveImageWithDPI(fo,bi,96,extensionName);
-			} catch(Exception e) {
-				e.printStackTrace();
+				try {
+					while(file.exists()){
+						i++;
+						file = new File(path+i+"."+extension);
+					}
+					FileOutputStream fo = new FileOutputStream(file);
+					BufferedOutputStream bw = new BufferedOutputStream(fo);
+					if (extension.equals("png")) {
+						ImageWithDpi.saveImageWithDPI(fo,bi,96);
+					}else{
+						saveJpeg(fo,bi,1f,96);
+					}
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
 			}
 		}
 	}
 	
-	private static String getHTML(int count,String text,int start){
+	private String getHTML(int count,String text,int start){
 		try {
 			
 		String sendUrl;
@@ -117,11 +138,11 @@ public class JavaSaveImage{
 		}
 	}
 	
-	private static String getURL(){
+	private String getURL(){
 		return m.group(1);
 	}
 
-	private static BufferedImage getImage(String imageURL){
+	private BufferedImage getImage(String imageURL){
 		try {
 			HttpURLConnection urlcon =(HttpURLConnection)new URL(imageURL).openConnection();
 			urlcon.setConnectTimeout(5000);
@@ -134,7 +155,7 @@ public class JavaSaveImage{
 		}
 	}
 	
-	public static boolean saveJpeg(FileOutputStream outputStream, BufferedImage img, float compression, int dpi) {
+	public boolean saveJpeg(FileOutputStream outputStream, BufferedImage img, float compression, int dpi) {
 		// this program made by https://hemohemo.air-nifty.com/hemohemo/2014/07/java-jpeg-d768.html
 		if(compression < 0 || compression > 1f) {
 			return false;
@@ -157,12 +178,12 @@ public class JavaSaveImage{
 			param.setCompressionQuality(compression);
 
 			IIOMetadata imageMeta = iw.getDefaultImageMetadata(new ImageTypeSpecifier(img), param);
-			Element tree = (Element) imageMeta.getAsTree("javax_imageio_png_image_1.0");
+			Element tree = (Element) imageMeta.getAsTree("javax_imageio_jpeg_image_1.0");
 			Element jfif = (Element) tree.getElementsByTagName("app0JFIF").item(0);
 			jfif.setAttribute("resUnits", "1");
 			jfif.setAttribute("Xdensity", Integer.toString(dpi));
 			jfif.setAttribute("Ydensity", Integer.toString(dpi));
-			imageMeta.setFromTree("javax_imageio_png_image_1.0", tree);
+			imageMeta.setFromTree("javax_imageio_jpeg_image_1.0", tree);
 			iw.write(null, new IIOImage(img, null, imageMeta), param);
 		} catch (IOException ex) {
 			ex.printStackTrace();
@@ -172,7 +193,7 @@ public class JavaSaveImage{
 		return true;
 	}
 	
-	private static BufferedImage rotate(BufferedImage bi){
+	private BufferedImage rotate(BufferedImage bi){
 		if (bi==null) {
 			return null;
 		}
