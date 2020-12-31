@@ -14,7 +14,6 @@ import javax.imageio.stream.*;
 import javax.imageio.plugins.jpeg.*;
 import javax.imageio.metadata.*;
 
-// import javax.lang.model.element.*;
 import org.w3c.dom.*;
 
 import harujisaku.javasaveimage.*;
@@ -120,33 +119,32 @@ public class JavaSaveImage{
 	
 	private String getHTML(int count,String text,int start){
 		try {
-			
-		String sendUrl;
-		try {
-			sendUrl = url+"?count="+String.valueOf(count)+"&query="+URLEncoder.encode(text,"UTF-8")+option+"&start="+String.valueOf(start);
-		} catch(UnsupportedEncodingException e) {
-			sendUrl = url+"?count="+String.valueOf(count)+"&query="+text+option+"&start="+String.valueOf(start);
-		}
-		System.out.println(sendUrl);
-		HttpURLConnection connection = (HttpURLConnection) new URL(sendUrl).openConnection();
-		connection.setRequestProperty("User-Agent" , "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:84.0) Gecko/20100101 Firefox/84.0");
-		int responseCode = connection.getResponseCode();
-		InputStream inputStream;
-		if (200 <= responseCode && responseCode <= 299) {
-			inputStream = connection.getInputStream();
-		}else{
-			System.out.println("error");
-			System.out.println(responseCode);
-			inputStream = connection.getErrorStream();
-		}
-		BufferedReader in = new BufferedReader(new InputStreamReader(inputStream,"UTF-8"));
-		StringBuilder response = new StringBuilder();
-		String currentLine;
-		while((currentLine = in.readLine())!=null){
-			response.append(currentLine);
-		}
-		in.close();
-		return response.toString();
+			String sendUrl;
+			try {
+				sendUrl = url+"?count="+String.valueOf(count)+"&query="+URLEncoder.encode(text,"UTF-8")+option+"&start="+String.valueOf(start);
+			} catch(UnsupportedEncodingException e) {
+				sendUrl = url+"?count="+String.valueOf(count)+"&query="+text+option+"&start="+String.valueOf(start);
+			}
+			System.out.println(sendUrl);
+			HttpURLConnection connection = (HttpURLConnection) new URL(sendUrl).openConnection();
+			connection.setRequestProperty("User-Agent" , "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:84.0) Gecko/20100101 Firefox/84.0");
+			int responseCode = connection.getResponseCode();
+			InputStream inputStream;
+			if (200 <= responseCode && responseCode <= 299) {
+				inputStream = connection.getInputStream();
+			}else{
+				System.out.println("error");
+				System.out.println(responseCode);
+				inputStream = connection.getErrorStream();
+			}
+			BufferedReader in = new BufferedReader(new InputStreamReader(inputStream,"UTF-8"));
+			StringBuilder response = new StringBuilder();
+			String currentLine;
+			while((currentLine = in.readLine())!=null){
+				response.append(currentLine);
+			}
+			in.close();
+			return response.toString();
 		} catch(Exception e) {
 			e.printStackTrace();
 			return null;
@@ -185,10 +183,8 @@ public class JavaSaveImage{
 	
 	public boolean saveJpeg(FileOutputStream outputStream, BufferedImage img, float compression, int dpi) {
 		// this program made by https://hemohemo.air-nifty.com/hemohemo/2014/07/java-jpeg-d768.html
-		if(compression < 0 || compression > 1f) {
-			return false;
-		}
-		if (img==null) {
+		// 品質が0未満だったり1以上だったり渡された画像がnullだったらfalseを返す。
+		if(compression < 0 || compression > 1f||img==null) {
 			return false;
 		}
 		// 元画像が透過pngだった場合エラーが出るので透明部分を白色に変える
