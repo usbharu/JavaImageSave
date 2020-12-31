@@ -78,8 +78,8 @@ public class JavaSaveImage{
 	private void save(){
 		m=p.matcher(html);
 		File file = new File(path+"1."+extension);
-		int i=0;
 		while(m.find()){
+			int i=0;
 			System.out.println(getURL());
 			if (isNeedSave) {
 				BufferedImage bi = rotate(getImage(getURL()));
