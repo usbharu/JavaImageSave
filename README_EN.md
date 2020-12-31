@@ -15,7 +15,7 @@ java -jar JavaImageSave.jar -t search_text -o search_option
 
 Auto start search and auto convert 96 dpi jpeg image. If get image is height > width , rotate it 90°.
 
-##　option
+## option
 
 -l option is search count
 
