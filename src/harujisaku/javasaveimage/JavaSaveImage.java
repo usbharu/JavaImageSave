@@ -25,7 +25,7 @@ public class JavaSaveImage{
 	Matcher m;
 	String html="",option="",texts="java",path="",extension="jpg";
 	int length=1,requestCount=0,errorCount=0;
-	boolean isNeedSave=true;
+	boolean isNeedSave=true,isNeedRotate=true;
 	String helpMessage = "-h,-help : help , this message ヘルプ　このメッセージ\r\n-l,-len,-length : length　検索ページの長さ\r\n-o,-option : option　検索エンジンに指定するオプション\r\n\tlanguage,ysp_q,size,end,imtype,format,ss_view,from,q_type,view,adult,start\r\n-t,-text : search text　検索するテキスト\r\n-p,-path : save path 保存する場所\r\n-n,-no-save : only search 検索のみ\r\n-e,-extension : image type 保存形式";
 
 	public static void main(String[] args) {
@@ -50,8 +50,10 @@ public class JavaSaveImage{
 				texts=args[++i];
 			}else if ("-p".equals(args[i])||"-path".equals(args[i])) {
 				path=args[++i];
-			}else if("-n".equals(args[i])||"-no-save".equals(args[i])){
+			}else if("-s".equals(args[i])||"-no-save".equals(args[i])){
 				isNeedSave=false;
+			}else if("-r".equals(args[i])||"-no-rotate".equals(args[i])){
+				isNeedRotate=false;
 			}else if("-e".equals(args[i])||"-extension".equals(args[i])){
 				if (args[++i].equals("png")||args[i].equals("jpg")||args[i].equals("jpeg")) {
 					extension=args[i];
@@ -88,7 +90,12 @@ public class JavaSaveImage{
 			requestCount++;
 			System.out.println(getURL());
 			if (isNeedSave) {
-				BufferedImage bi = rotate(getImage(getURL()));
+				BufferedImage bi;
+				if (isNeedRotate) {
+					bi = rotate(getImage(getURL()));
+				}else{
+					bi = getImage(getURL());
+				}
 				if(bi==null){
 					errorCount++;
 					continue;
