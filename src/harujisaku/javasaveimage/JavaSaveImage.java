@@ -58,8 +58,9 @@ public class JavaSaveImage{
 				}else{
 					System.out.println("引数指定の誤り : 対応していない形式が指定されました");
 					System.out.println("指定できる形式は以下のとおりです");
-					System.out.println("png,jpg,jpeg");
+					System.out.println("png,jpg(default),jpeg");
 					System.out.println(helpMessage);
+					return;
 				}
 			}else{
 				System.out.println("引数指定の誤り：未知の引数が指定されました");
