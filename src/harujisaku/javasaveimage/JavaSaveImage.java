@@ -26,7 +26,7 @@ public class JavaSaveImage{
 	String html="",option="",texts="java",path="",extension="jpg";
 	int length=1,requestCount=0,errorCount=0;
 	boolean isNeedSave=true,isNeedRotate=true;
-	String helpMessage = "-h,-help : help , this message ヘルプ　このメッセージ\r\n-l,-len,-length : length　検索ページの長さ\r\n-o,-option : option　検索エンジンに指定するオプション\r\n\tlanguage,ysp_q,size,end,imtype,format,ss_view,from,q_type,view,adult,start\r\n-t,-text : search text　検索するテキスト\r\n-p,-path : save path 保存する場所\r\n-n,-no-save : only search 検索のみ\r\n-e,-extension : image type 保存形式";
+	String helpMessage = "-h,-help : help , this message ヘルプ　このメッセージ\r\n-l,-len,-length : length　検索ページの長さ\r\n-o,-option : option　検索エンジンに指定するオプション\r\n\tlanguage,ysp_q,size,end,imtype,format,ss_view,from,q_type,view,adult,start\r\n-t,-text : search text　検索するテキスト\r\n-p,-path : save path 保存する場所\r\n-s,-no-save : only search 検索のみ\r\n-e,-extension : image type 保存形式\r\n-r,-no-rotate not auto rotate 自動で横向きにしないようにします";
 
 	public static void main(String[] args) {
 		new JavaSaveImage().myMain(args);
