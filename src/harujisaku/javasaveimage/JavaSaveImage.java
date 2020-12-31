@@ -23,7 +23,7 @@ public class JavaSaveImage{
 	String url = "https://www.so-net.ne.jp/search/image/";
 	Pattern p = Pattern.compile("<a.*?href\\s*=\\s*[\"|'](https?://.*?)[\"|'].*? rel=\"search_result\".*?>");
 	Matcher m;
-	String html="",option="",texts="java",path="",extension="png";
+	String html="",option="",texts="java",path="",extension="jpg";
 	int length=1;
 	boolean isNeedSave=true;
 	String helpMessage = "-h,-help : help , this message ヘルプ　このメッセージ\r\n-l,-len,-length : length　検索ページの長さ\r\n-o,-option : option　検索エンジンに指定するオプション\r\n\tlanguage,ysp_q,size,end,imtype,format,ss_view,from,q_type,view,adult,start\r\n-t,-text : search text　検索するテキスト\r\n-p,-path : save path 保存する場所\r\n-n,-no-save : only search 検索のみ\r\n-e,-extension : image type 保存形式";
