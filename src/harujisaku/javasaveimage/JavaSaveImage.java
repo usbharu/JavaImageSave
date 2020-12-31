@@ -24,7 +24,7 @@ public class JavaSaveImage{
 	Pattern p = Pattern.compile("<a.*?href\\s*=\\s*[\"|'](https?://.*?)[\"|'].*? rel=\"search_result\".*?>");
 	Matcher m;
 	String html="",option="",texts="java",path="",extension="jpg";
-	int length=1;
+	int length=1,requestCount=0,errorCount=0;
 	boolean isNeedSave=true;
 	String helpMessage = "-h,-help : help , this message ヘルプ　このメッセージ\r\n-l,-len,-length : length　検索ページの長さ\r\n-o,-option : option　検索エンジンに指定するオプション\r\n\tlanguage,ysp_q,size,end,imtype,format,ss_view,from,q_type,view,adult,start\r\n-t,-text : search text　検索するテキスト\r\n-p,-path : save path 保存する場所\r\n-n,-no-save : only search 検索のみ\r\n-e,-extension : image type 保存形式";
 
@@ -74,6 +74,10 @@ public class JavaSaveImage{
 			save();
 			a++;
 		}
+		System.out.print("Request : ");
+		System.out.println(requestCount);
+		System.out.print("Error : ");
+		System.out.println(errorCount);
 	}
 	
 	private void save(){
@@ -81,10 +85,12 @@ public class JavaSaveImage{
 		File file = new File(path+"1."+extension);
 		while(m.find()){
 			int i=0;
+			requestCount++;
 			System.out.println(getURL());
 			if (isNeedSave) {
 				BufferedImage bi = rotate(getImage(getURL()));
 				if(bi==null){
+					errorCount++;
 					continue;
 				}
 				try {
@@ -93,7 +99,6 @@ public class JavaSaveImage{
 						file = new File(path+i+"."+extension);
 					}
 					FileOutputStream fo = new FileOutputStream(file);
-					BufferedOutputStream bw = new BufferedOutputStream(fo);
 					if (extension.equals("png")) {
 						harujisaku.javasaveimage.ImageWithDpi.saveImageWithDPI(fo,bi,96,"png");
 					}else{
@@ -150,7 +155,20 @@ public class JavaSaveImage{
 			HttpURLConnection urlcon =(HttpURLConnection)new URL(imageURL).openConnection();
 			urlcon.setConnectTimeout(5000);
 			urlcon.setReadTimeout(5000);
-			BufferedImage bi =ImageIO.read(urlcon.getInputStream());
+			BufferedImage bi;
+			try {
+				int responseCode=urlcon.getResponseCode();
+				if (200<=responseCode&&responseCode<=299) {
+					bi =ImageIO.read(urlcon.getInputStream());
+				}else{
+					System.out.println("error");
+					System.out.println(responseCode);
+					bi=null;
+				}
+			} catch(SocketTimeoutException e) {
+				System.out.println("Time Out!");
+				return null;
+			}
 			return bi;
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -171,6 +189,8 @@ public class JavaSaveImage{
 			BufferedImage newBufferedImage = new BufferedImage(img.getWidth(),img.getHeight(), BufferedImage.TYPE_INT_RGB);
 			newBufferedImage.createGraphics().drawImage(img, 0, 0, Color.WHITE, null);
 			img=newBufferedImage;
+		}else if(img.getType()==0){
+			return false;
 		}
 		ImageWriter iw = ImageIO.getImageWritersByFormatName("jpeg").next();
 		try (ImageOutputStream ios = ImageIO.createImageOutputStream(outputStream)) {
