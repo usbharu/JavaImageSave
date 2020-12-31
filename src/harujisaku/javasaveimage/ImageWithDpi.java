@@ -1,4 +1,4 @@
-// package harujisaku.javasaveimage;
+package harujisaku.javasaveimage;
 
 import java.util.Iterator;
 
@@ -18,7 +18,7 @@ import javax.imageio.stream.ImageOutputStream;
 
 public class ImageWithDpi{
 
-public static void saveImageWithDPI(OutputStream output, BufferedImage img, int resolution,final String formatName) throws IOException {
+public static void saveImageWithDPI(OutputStream output, BufferedImage img, int resolution, String formatName) throws IOException {
 	for (Iterator<ImageWriter> iw = ImageIO.getImageWritersByFormatName(formatName); iw.hasNext();) {
 		ImageWriter writer = iw.next();
 		ImageWriteParam writeParam = writer.getDefaultWriteParam();

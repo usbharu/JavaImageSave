@@ -1,4 +1,4 @@
-// package harujisaku.javasaveimage;
+package harujisaku.javasaveimage;
 
 import java.io.*;
 
@@ -17,14 +17,16 @@ import javax.imageio.metadata.*;
 // import javax.lang.model.element.*;
 import org.w3c.dom.*;
 
+import harujisaku.javasaveimage.*;
+
 public class JavaSaveImage{
 	String url = "https://www.so-net.ne.jp/search/image/";
 	Pattern p = Pattern.compile("<a.*?href\\s*=\\s*[\"|'](https?://.*?)[\"|'].*? rel=\"search_result\".*?>");
 	Matcher m;
-	String html="",option="",texts="raspberry pi",path="",extension="png";
+	String html="",option="",texts="java",path="",extension="png";
 	int length=1;
 	boolean isNeedSave=true;
-	String helpMessage = "-h,-help : help , this message ヘルプ　このメッセージ\r\n-l,-len,-length : length　検索ページの長さ\r\n-o,-option : option　検索エンジンに指定するオプション\r\n\tlanguage,ysp_q,size,end,imtype,format,ss_view,from,q_type,view,adult,start\r\n-t,-text : search text　検索するテキスト\r\n-p,-path : save path 保存する場所";
+	String helpMessage = "-h,-help : help , this message ヘルプ　このメッセージ\r\n-l,-len,-length : length　検索ページの長さ\r\n-o,-option : option　検索エンジンに指定するオプション\r\n\tlanguage,ysp_q,size,end,imtype,format,ss_view,from,q_type,view,adult,start\r\n-t,-text : search text　検索するテキスト\r\n-p,-path : save path 保存する場所\r\n-n,-no-save : only search 検索のみ\r\n-e,-extension : image type 保存形式";
 
 	public static void main(String[] args) {
 		new JavaSaveImage().myMain(args);
@@ -32,10 +34,10 @@ public class JavaSaveImage{
 	
 	private void myMain(String[] args){
 		int a = 0;
-		// if (args.length==0) {
-		// 	System.out.println(helpMessage);
-		// 	return;
-		// }
+		if (args.length==0) {
+			System.out.println(helpMessage);
+			return;
+		}
 		for (int i=0,len=args.length;i<len ;i++ ) {
 			if ("-h".equals(args[i])||"-help".equals(args[i])) {
 				System.out.println(helpMessage);
@@ -92,7 +94,7 @@ public class JavaSaveImage{
 					FileOutputStream fo = new FileOutputStream(file);
 					BufferedOutputStream bw = new BufferedOutputStream(fo);
 					if (extension.equals("png")) {
-						ImageWithDpi.saveImageWithDPI(fo,bi,96);
+						harujisaku.javasaveimage.ImageWithDpi.saveImageWithDPI(fo,bi,96,"png");
 					}else{
 						saveJpeg(fo,bi,1f,96);
 					}
