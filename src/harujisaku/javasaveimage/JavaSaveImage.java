@@ -23,9 +23,19 @@ public class JavaSaveImage{
 	Pattern p = Pattern.compile("<a.*?href\\s*=\\s*[\"|'](https?://.*?)[\"|'].*? rel=\"search_result\".*?>");
 	Matcher m;
 	String html="",option="",texts="java",path="",extension="jpg";
-	int length=1,requestCount=0,errorCount=0;
+	int length=5,requestCount=0,errorCount=0,rotateDegree=0;
+	double rotateRadian=Math.toRadians(rotateDegree);
 	boolean isNeedSave=true,isNeedRotate=true;
-	String helpMessage = "-h,-help : help , this message ヘルプ　このメッセージ\r\n-l,-len,-length : length　検索ページの長さ\r\n-o,-option : option　検索エンジンに指定するオプション\r\n\tlanguage,ysp_q,size,end,imtype,format,ss_view,from,q_type,view,adult,start\r\n-t,-text : search text　検索するテキスト\r\n-p,-path : save path 保存する場所\r\n-s,-no-save : only search 検索のみ\r\n-e,-extension : image type 保存形式\r\n-r,-no-rotate not auto rotate 自動で横向きにしないようにします";
+	String helpMessage = "java -jar JacaSaveImage.jar [-l|-len|-length search count] -t or -text search text [-o|-option search option] [-p|-path save path] [-s|-no-save] [-e|-extension image type] [-r|-rotate|-no-rotate [rotate degree]]\r\n"+
+	"-h,-help : help , this message ヘルプ　このメッセージ\r\n"+
+	"-l,-len,-length : length　検索ページの長さ\r\n"+
+	"-o,-option : option　検索エンジンに指定するオプション\r\n"+
+	"\tlanguage,ysp_q,size,end,imtype,format,ss_view,from,q_type,view,adult,start\r\n"+
+	"-t,-text : search text　検索するテキスト\r\n"+
+	"-p,-path : save path 保存する場所\r\n"+
+	"-s,-no-save : only search 検索のみ\r\n"+
+	"-e,-extension : image type 保存形式\r\n"+
+	"-r,-no-rotate,-rotate : set rotate degree 回転する方向を指定します。何も指定しなかった場合は横向きになります。";
 
 	public static void main(String[] args) {
 		new JavaSaveImage().myMain(args);
@@ -51,8 +61,16 @@ public class JavaSaveImage{
 				path=args[++i];
 			}else if("-s".equals(args[i])||"-no-save".equals(args[i])){
 				isNeedSave=false;
-			}else if("-r".equals(args[i])||"-no-rotate".equals(args[i])){
-				isNeedRotate=false;
+			}else if("-r".equals(args[i])||"-no-rotate".equals(args[i])||"-rotate".equals(args[i])){
+				try {
+					rotateDegree=Integer.parseInt(args[++i]);
+					rotateRadian=Math.toRadians(rotateDegree);
+					System.out.println(rotateDegree);
+					System.out.println(rotateRadian);
+				} catch(NumberFormatException e) {
+					isNeedRotate=false;
+					--i;
+				}
 			}else if("-e".equals(args[i])||"-extension".equals(args[i])){
 				if (args[++i].equals("png")||args[i].equals("jpg")||args[i].equals("jpeg")) {
 					extension=args[i];
@@ -106,7 +124,7 @@ public class JavaSaveImage{
 					}
 					FileOutputStream fo = new FileOutputStream(file);
 					if (extension.equals("png")) {
-						harujisaku.javasaveimage.ImageWithDpi.saveImageWithDPI(fo,bi,96,"png");
+						ImageWithDpi.saveImageWithDPI(fo,bi,96,"png");
 					}else{
 						saveJpeg(fo,bi,1f,96);
 					}
@@ -223,18 +241,17 @@ public class JavaSaveImage{
 		if (bi==null) {
 			return null;
 		}
-		int width=bi.getWidth(),height=bi.getHeight();
-		if (width<height) {
-			BufferedImage out = new BufferedImage(height,width,BufferedImage.TYPE_INT_RGB);
+		double width=bi.getWidth(),height=bi.getHeight();
+		int afterWidth=(int)Math.round(height*Math.abs(Math.sin(rotateRadian))+width*Math.abs(Math.cos(rotateRadian)));
+		int afterHeight=(int)Math.round(width*Math.abs(Math.sin(rotateRadian))+height*Math.abs(Math.cos(rotateRadian)));
+			BufferedImage out = new BufferedImage(afterWidth,afterHeight,BufferedImage.TYPE_INT_RGB);
 			Graphics2D g2 = out.createGraphics();
 			AffineTransform rotate = new AffineTransform();
 			AffineTransform move = new AffineTransform();
-			rotate.rotate(Math.toRadians(90),0.0,0.0);
-			move.translate(height,0.0);
+			rotate.rotate(rotateRadian,width/2,height/2);
+			move.translate(afterWidth/2-width/2,afterHeight/2-height/2);
 			move.concatenate(rotate);
 			g2.drawImage(bi,move,null);
 			return out;
-		}
-		return bi;
 	}
 }
