@@ -111,11 +111,7 @@ public class JavaSaveImage{
 			System.out.println(getURL());
 			if (isNeedSave) {
 				BufferedImage bi;
-				if (isNeedRotate) {
-					bi = rotate(getImage(getURL()));
-				}else{
-					bi = getImage(getURL());
-				}
+				bi = rotate(getImage(getURL()));
 				if(bi==null){
 					errorCount++;
 					continue;
