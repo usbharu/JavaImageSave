@@ -63,10 +63,13 @@ public class JavaSaveImage{
 				isNeedSave=false;
 			}else if("-r".equals(args[i])||"-no-rotate".equals(args[i])||"-rotate".equals(args[i])){
 				try {
-					rotateDegree=Integer.parseInt(args[++i]);
-					rotateRadian=Math.toRadians(rotateDegree);
-					System.out.println(rotateDegree);
-					System.out.println(rotateRadian);
+					isNeedRotate=false;
+					if (args.length>i+1) {
+						rotateDegree=Integer.parseInt(args[++i]);
+						rotateRadian=Math.toRadians(rotateDegree);
+						System.out.println(rotateDegree);
+						System.out.println(rotateRadian);
+					}
 				} catch(NumberFormatException e) {
 					isNeedRotate=false;
 					--i;
@@ -241,9 +244,10 @@ public class JavaSaveImage{
 		if (bi==null) {
 			return null;
 		}
-		double width=bi.getWidth(),height=bi.getHeight();
-		int afterWidth=(int)Math.round(height*Math.abs(Math.sin(rotateRadian))+width*Math.abs(Math.cos(rotateRadian)));
-		int afterHeight=(int)Math.round(width*Math.abs(Math.sin(rotateRadian))+height*Math.abs(Math.cos(rotateRadian)));
+		if (!isNeedRotate) {
+			double width=bi.getWidth(),height=bi.getHeight();
+			int afterWidth=(int)Math.round(height*Math.abs(Math.sin(rotateRadian))+width*Math.abs(Math.cos(rotateRadian)));
+			int afterHeight=(int)Math.round(width*Math.abs(Math.sin(rotateRadian))+height*Math.abs(Math.cos(rotateRadian)));
 			BufferedImage out = new BufferedImage(afterWidth,afterHeight,BufferedImage.TYPE_INT_RGB);
 			Graphics2D g2 = out.createGraphics();
 			AffineTransform rotate = new AffineTransform();
@@ -253,5 +257,20 @@ public class JavaSaveImage{
 			move.concatenate(rotate);
 			g2.drawImage(bi,move,null);
 			return out;
+		}else{
+			int width=bi.getWidth(),height=bi.getHeight();
+			if (width<height) {
+				BufferedImage out = new BufferedImage(height,width,BufferedImage.TYPE_INT_RGB);
+				Graphics2D g2 = out.createGraphics();
+				AffineTransform rotate = new AffineTransform();
+				AffineTransform move = new AffineTransform();
+				rotate.rotate(Math.toRadians(90),0.0,0.0);
+				move.translate(height,0.0);
+				move.concatenate(rotate);
+				g2.drawImage(bi,move,null);
+				return out;
+			}
+			return bi;
+		}
 	}
 }

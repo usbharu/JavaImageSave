@@ -14,6 +14,10 @@ java -jar JavaImageSave.jar -t search_text -l count_of_search(default 5) -p path
 java -jar JavaImageSave.jar -t search_text -o search_option
 ```
 
+```bash
+java -jar JavaImageSave.jar -t search_text -r 90
+```
+
 自動で検索を開始し、全て96dpiのjpgに変換し、横長で保存します。
 
 ## オプション
@@ -33,6 +37,8 @@ java -jar JavaImageSave.jar -t search_text -o search_option
 -s オプションで検索結果の表示のみにすることができます。
 
 -e オプションで保存時の拡張子を(png,jpg,jpeg)から指定できます。
+
+-r オプションで回転方向を指定できます。このオプションを指定するだけで自動回転がなくなります。
 
 https://www.so-net.ne.jp/search/image/?count=20&query= (-t 検索する文字) (-o オプションで指定した文字)&start=(検索回数*20)
 

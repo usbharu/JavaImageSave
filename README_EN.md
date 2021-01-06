@@ -13,6 +13,12 @@ java -jar JavaImageSave.jar -t search_text -l count_of_search(default 5) -p path
 java -jar JavaImageSave.jar -t search_text -o search_option
 ```
 
+```bash
+java -jar JacaImageSave.jar -t search_text -r 90
+```
+
+
+
 Auto start search and auto convert 96 dpi jpeg image. If get image is height > width , rotate it 90°.
 
 ## option
@@ -28,6 +34,8 @@ one count 20 image
 -h option is help. print help message.
 
 -o option is set option for search engin.
+
+-r option is set rotate degree. use this option, It will not auto rotate.
 
 https://www.so-net.ne.jp/search/image/?count=20&query= (-t option word) (-o option strings)&start=(count of search*20)
 
