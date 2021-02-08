@@ -7,15 +7,15 @@
 ## 使い方　how to use
 
 ```bash
-java -jar JavaImageSave.jar -t search_text -l count_of_search(default 5) -p path_to_save
+JavaSaveImage.bat -t search_text -l count_of_search(default 5) -p path_to_save
 ```
 
 ```bash
-java -jar JavaImageSave.jar -t search_text -o search_option
+JavaSaveImage.bat -t search_text -o search_option
 ```
 
 ```bash
-java -jar JavaImageSave.jar -t search_text -r 90
+JavaSaveImage.bat -t search_text -r 90
 ```
 
 自動で検索を開始し、全て96dpiのjpgに変換し、横長で保存します。
@@ -53,7 +53,7 @@ https://www.so-net.ne.jp/search/image/?count=20&query= (-t 検索する文字) (
 拡張子の指定は検索時であって保存時には全てjpgに変換されます。
 
 ```bash
-java -jar JavaSaveImage.jar -t text -o "&format=png"
+JavaSaveImage.bat -t text -o "&format=png"
 ```
 
 ### 大人な画像の取得
@@ -61,7 +61,7 @@ java -jar JavaSaveImage.jar -t text -o "&format=png"
 大人な画像の取得もできます。
 
 ```bash
-java -jar JavaSaveImage.jar -t text -o "&adult=on"
+JavaSaveImage.bat -t text -o "&adult=on"
 ```
 
 ### サイズの指定
@@ -69,18 +69,18 @@ java -jar JavaSaveImage.jar -t text -o "&adult=on"
 このオプションは複数回指定も可能です。ただしsize_allオプションを付ける必要があります。
 
 ```bash
-java -jar JavaSaveImage.jar -t text -o "&size=large"
+JavaSaveImage.bat -t text -o "&size=large"
 ```
 ```bash
-java -jar JavaSaveImage.jar -t text -o "&size=small"
-```
-
-```bash
-java -jar JavaSaveImage.jar -t text -o "&size=medium"
+JavaSaveImage.bat -t text -o "&size=small"
 ```
 
 ```bash
-java -jar JavaSaveImage.jar -t text -o "&size_all=parts&size=small&size=medium"
+JavaSaveImage.bat -t text -o "&size=medium"
+```
+
+```bash
+JavaSaveImage.bat -t text -o "&size_all=parts&size=small&size=medium"
 ```
 
 
@@ -88,24 +88,23 @@ java -jar JavaSaveImage.jar -t text -o "&size_all=parts&size=small&size=medium"
 ### 検索の仕方
 
 ```bash
-java -jar JavaSaveImage.jar -t text -o "&q_type=and_w"
+JavaSaveImage.bat -t text -o "&q_type=and_w"
 ```
 
 ```bash
-java -jar JavaSaveImage.jar -t text -o "&q_type=or_w"
+JavaSaveImage.bat -t text -o "&q_type=or_w"
 ```
 
 ```bash
-java -jar JavaSaveImage.jar -t text -o "&q_type=ph_w"
+JavaSaveImage.bat -t text -o "&q_type=ph_w"
 ```
 
 ### 画像の色
 
 ```bash
-java -jar JavaSaveImage.jar -t text -o "&imtype=gray"
+JavaSaveImage.bat -t text -o "&imtype=gray"
 ```
 
 ```bash
-java -jar JavaSaveImage.jar -t text -o "&imtype=color"
+JavaSaveImage.bat -t text -o "&imtype=color"
 ```
-

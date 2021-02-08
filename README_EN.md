@@ -6,15 +6,15 @@ This program can automatically save the results of so-net image search, which gi
 ## how to use
 
 ```bash
-java -jar JavaImageSave.jar -t search_text -l count_of_search(default 5) -p path_to_save
+JavaSaveImage.bat -t search_text -l count_of_search(default 5) -p path_to_save
 ```
 
 ```bash
-java -jar JavaImageSave.jar -t search_text -o search_option
+JavaSaveImage.bat -t search_text -o search_option
 ```
 
 ```bash
-java -jar JacaImageSave.jar -t search_text -r 90
+JavaSaveImage.bat -t search_text -r 90
 ```
 
 
@@ -25,7 +25,7 @@ Auto start search and auto convert 96 dpi jpeg image. If get image is height > w
 
 -l option is search count
 
-one count 20 image 
+one count 20 image
 
 -t option is search word. If it word has space,please use double quotation.
 
@@ -50,7 +50,7 @@ You can specify the extension when searching.(only jpeg,gif,png)
 The extension is specified at the time of search and is converted to jpeg at the time of saving.
 
 ```bash
-java -jar JavaSaveImage.jar -t text -o "&format=png"
+JavaSaveImage.bat -t text -o "&format=png"
 ```
 
 ### get adult image
@@ -58,7 +58,7 @@ java -jar JavaSaveImage.jar -t text -o "&format=png"
 You can also get adult images.
 
 ```bash
-java -jar JavaSaveImage.jar -t text -o "&adult=on"
+JavaSaveImage.bat -t text -o "&adult=on"
 ```
 
 ### set image size
@@ -66,18 +66,18 @@ java -jar JavaSaveImage.jar -t text -o "&adult=on"
 Can be specified multiple times, but use size_all option.
 
 ```bash
-java -jar JavaSaveImage.jar -t text -o "&size=large"
+JavaSaveImage.bat -t text -o "&size=large"
 ```
 ```bash
-java -jar JavaSaveImage.jar -t text -o "&size=small"
-```
-
-```bash
-java -jar JavaSaveImage.jar -t text -o "&size=medium"
+JavaSaveImage.bat -t text -o "&size=small"
 ```
 
 ```bash
-java -jar JavaSaveImage.jar -t text -o "&size_all=parts&size=small&size=medium"
+JavaSaveImage.bat -t text -o "&size=medium"
+```
+
+```bash
+JavaSaveImage.bat -t text -o "&size_all=parts&size=small&size=medium"
 ```
 
 
@@ -85,23 +85,23 @@ java -jar JavaSaveImage.jar -t text -o "&size_all=parts&size=small&size=medium"
 ### set search type
 
 ```bash
-java -jar JavaSaveImage.jar -t text -o "&q_type=and_w"
+JavaSaveImage.bat -t text -o "&q_type=and_w"
 ```
 
 ```bash
-java -jar JavaSaveImage.jar -t text -o "&q_type=or_w"
+JavaSaveImage.bat -t text -o "&q_type=or_w"
 ```
 
 ```bash
-java -jar JavaSaveImage.jar -t text -o "&q_type=ph_w"
+JavaSaveImage.bat -t text -o "&q_type=ph_w"
 ```
 
 ### image color
 
 ```bash
-java -jar JavaSaveImage.jar -t text -o "&imtype=gray"
+JavaSaveImage.bat -t text -o "&imtype=gray"
 ```
 
 ```bash
-java -jar JavaSaveImage.jar -t text -o "&imtype=color"
+JavaSaveImage.bat -t text -o "&imtype=color"
 ```
