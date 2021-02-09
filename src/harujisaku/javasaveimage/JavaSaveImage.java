@@ -26,17 +26,30 @@ public class JavaSaveImage{
 	int length=5,requestCount=0,errorCount=0,rotateDegree=0;
 	double rotateRadian=Math.toRadians(rotateDegree);
 	boolean isNeedSave=true,isNeedRotate=true;
-	String helpMessage = "java -jar JacaSaveImage.jar [-l|-len|-length search count] -t or -text search text [-o|-option search option] [-p|-path save path] [-s|-no-save] [-e|-extension image type] [-r|-rotate|-no-rotate [rotate degree]]\r\n"+
-	"-h,-help : help , this message ヘルプ　このメッセージ\r\n"+
-	"-l,-len,-length : length　検索ページの長さ\r\n"+
-	"-o,-option : option　検索エンジンに指定するオプション\r\n"+
-	"\tlanguage,ysp_q,size,end,imtype,format,ss_view,from,q_type,view,adult,start\r\n"+
-	"-t,-text : search text　検索するテキスト\r\n"+
-	"-p,-path : save path 保存する場所\r\n"+
-	"-s,-no-save : only search 検索のみ\r\n"+
-	"-e,-extension : image type 保存形式\r\n"+
-	"-r,-no-rotate,-rotate : set rotate degree 回転する方向を指定します。何も指定しなかった場合は横向きになります。";
+	// String helpMessage = "java -jar JacaSaveImage.jar [-l|-len|-length search count] -t or -text search text [-o|-option search option] [-p|-path save path] [-s|-no-save] [-e|-extension image type] [-r|-rotate|-no-rotate [rotate degree]]\r\n"+
+	// "-h,-help : help , this message ヘルプ　このメッセージ\r\n"+
+	// "-l,-len,-length : length　検索ページの長さ\r\n"+
+	// "-o,-option : option　検索エンジンに指定するオプション\r\n"+
+	// "\tlanguage,ysp_q,size,end,imtype,format,ss_view,from,q_type,view,adult,start\r\n"+
+	// "-t,-text : search text　検索するテキスト\r\n"+
+	// "-p,-path : save path 保存する場所\r\n"+
+	// "-s,-no-save : only search 検索のみ\r\n"+
+	// "-e,-extension : image type 保存形式\r\n"+
+	// "-r,-no-rotate,-rotate : set rotate degree 回転する方向を指定します。何も指定しなかった場合は横向きになります。";
 
+
+	String helpMessage = """
+	\tJacaSaveImage.bat [-l|-len|-length search count] -t or -text search text [-o|-option search option] [-p|-path save path] [-s|-no-save] [-e|-extension image type] [-r|-rotate|-no-rotate [rotate degree]]
+		-h,-help : help , this message ヘルプ　このメッセージ
+		-l,-len,-length : length　検索ページの長さ
+		-o,-option : option　検索エンジンに指定するオプション
+		\tlanguage,ysp_q,size,end,imtype,format,ss_view,from,q_type,view,adult,start
+		-t,-text : search text　検索するテキスト
+		-p,-path : save path 保存する場所
+		-s,-no-save : only search 検索のみ
+		-e,-extension : image type 保存形式
+		-r,-no-rotate,-rotate : set rotate degree 回転する方向を指定します。何も指定しなかった場合は横向きになります。
+	""";
 	public static void main(String[] args) {
 		new JavaSaveImage().myMain(args);
 	}
