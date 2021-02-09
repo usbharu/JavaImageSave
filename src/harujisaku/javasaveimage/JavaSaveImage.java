@@ -122,11 +122,12 @@ public class JavaSaveImage{
 						file = new File(path+i+"."+extension);
 					}
 					FileOutputStream fo = new FileOutputStream(file);
-					if (extension.equals("png")) {
-						ImageWithDPI.saveImageWithDPI(fo,bi,96,"png");
-					}else{
-						saveJpeg(fo,bi,1f,96);
-					}
+					SaveImageWithDPI.saveImageWithDPI(fo,bi,96,extension);
+					// if (extension.equals("png")) {
+					// 	ImageWithDPI.saveImageWithDPI(fo,bi,96,"png");
+					// }else{
+					// 	saveJpeg(fo,bi,1f,96);
+					// }
 				} catch(Exception e) {
 					e.printStackTrace();
 				}

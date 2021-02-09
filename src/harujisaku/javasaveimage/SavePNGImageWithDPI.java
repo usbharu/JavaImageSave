@@ -1,8 +1,25 @@
-package harujisaku.JavaSaveImage;
+package harujisaku.javasaveimage;
+
+import java.util.Iterator;
+
+import java.awt.image.BufferedImage;
+import java.io.OutputStream;
+import java.io.IOException;
+
+import javax.imageio.IIOImage;
+import javax.imageio.ImageIO;
+import javax.imageio.metadata.IIOMetadata;
+import javax.imageio.ImageWriter;
+import javax.imageio.ImageWriteParam;
+import javax.imageio.ImageTypeSpecifier;
+import javax.imageio.metadata.IIOInvalidTreeException;
+import javax.imageio.metadata.IIOMetadata;
+import javax.imageio.metadata.IIOMetadataNode;
+import javax.imageio.stream.ImageOutputStream;
 
 public class SavePNGImageWithDPI implements ISaveImageWithDPI {
-  public static final String formatName = "png";
-  public static boolean saveImageWithDPI(OutputStream output,BufferedImage img,int dpi){
+  public final String formatName = "png";
+  public boolean saveImageWithDPI(OutputStream output,BufferedImage img,int dpi)throws IOException{
     for (Iterator<ImageWriter> iw = ImageIO.getImageWritersByFormatName("png");iw.hasNext() ;) {
       ImageWriter writer = iw.next();
       ImageWriteParam writeParam = writer.getDefaultWriteParam();
@@ -22,9 +39,14 @@ public class SavePNGImageWithDPI implements ISaveImageWithDPI {
       }
       break;
     }
+    return false;
   }
 
-  private static void setDPI(IIOMetadata metadata,int dpi) throws IIOInvalidTreeException{
+  public String getFormatName(){
+    return "png";
+  }
+
+  private static void setDPI(IIOMetadata metadata,int dpi)throws IIOInvalidTreeException{
     String dotsPerMilli = "3.779528";
     IIOMetadataNode horizontal = new IIOMetadataNode("HorizontalPixelSize");
     horizontal.setAttribute("value",dotsPerMilli);
@@ -34,7 +56,7 @@ public class SavePNGImageWithDPI implements ISaveImageWithDPI {
     dimension.appendChild(horizontal);
     dimension.appendChild(vertical);
     IIOMetadataNode root = new IIOMetadataNode("javax_imageio_jpeg_image_1.0");
-    root.appendChild(dim);
+    root.appendChild(dimension);
     metadata.mergeTree("javax_imageio_jpeg_image_1.0",root);
   }
 }

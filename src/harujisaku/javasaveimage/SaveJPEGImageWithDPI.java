@@ -1,7 +1,26 @@
 package harujisaku.javasaveimage;
 
+import java.awt.image.BufferedImage;
+
+import java.awt.Color;
+
+import java.io.OutputStream;
+
+import java.io.IOException;
+
+import javax.imageio.IIOImage;
+import javax.imageio.ImageIO;
+import javax.imageio.metadata.IIOMetadata;
+import javax.imageio.metadata.IIOInvalidTreeException;
+import javax.imageio.ImageWriter;
+import javax.imageio.ImageTypeSpecifier;
+import javax.imageio.plugins.jpeg.JPEGImageWriteParam;
+import javax.imageio.stream.ImageOutputStream;
+
+import org.w3c.dom.Element;
+
 public class SaveJPEGImageWithDPI implements ISaveImageWithDPI {
-  public static final String formatName = "jpeg";
+  public final String formatName = "jpeg";
   public boolean saveImageWithDPI(OutputStream output,BufferedImage img,int dpi){
     if (img==null) {
       return false;
@@ -10,7 +29,7 @@ public class SaveJPEGImageWithDPI implements ISaveImageWithDPI {
       BufferedImage newBufferedImage = new BufferedImage(img.getWidth(),img.getHeight(),BufferedImage.TYPE_INT_RGB);
       newBufferedImage.createGraphics().drawImage(img,0,0,Color.WHITE,null);
       img=newBufferedImage;
-    }else if(img.getType==0){
+    }else if(img.getType()==0){
       return false;
     }
     ImageWriter iw = ImageIO.getImageWritersByFormatName("jpeg").next();
@@ -33,12 +52,16 @@ public class SaveJPEGImageWithDPI implements ISaveImageWithDPI {
     return true;
   }
 
-  private static void setDPI(IIOMetadata metadata,int dpi){
-    Element tree = (Element) imageMeta.getAsTree("javax_imageio_jpeg_image_1.0");
+  private void setDPI(IIOMetadata metadata,int dpi)throws IIOInvalidTreeException{
+    Element tree = (Element) metadata.getAsTree("javax_imageio_jpeg_image_1.0");
     Element jfif = (Element) tree.getElementsByTagName("app0JFIF").item(0);
     jfif.setAttribute("resUnits","1");
     jfif.setAttribute("Xdensity",Integer.toString(dpi));
     jfif.setAttribute("Ydensity",Integer.toString(dpi));
-    imageMeta.setFromTree("javax_imageio_jpeg_image_1.0",tree);
+    metadata.setFromTree("javax_imageio_jpeg_image_1.0",tree);
+  }
+
+  public String getFormatName(){
+    return "jpeg";
   }
 }
