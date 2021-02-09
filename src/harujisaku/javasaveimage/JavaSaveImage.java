@@ -17,6 +17,7 @@ import javax.imageio.metadata.*;
 import org.w3c.dom.*;
 
 import harujisaku.javasaveimage.image.*;
+import harujisaku.javasaveimage.util.*;
 
 public class JavaSaveImage{
 	String url = "https://www.so-net.ne.jp/search/image/";
@@ -45,6 +46,8 @@ public class JavaSaveImage{
 	}
 
 	private void myMain(String[] args){
+		java.util.Locale.setDefault(java.util.Locale.JAPAN);
+		System.out.println(Message.HELP);
 		int a = 0;
 		if (args.length==0) {
 			System.out.println(helpMessage);
