@@ -46,11 +46,9 @@ public class JavaSaveImage{
 	}
 
 	private void myMain(String[] args){
-		java.util.Locale.setDefault(java.util.Locale.JAPAN);
-		System.out.println(Message.HELP);
 		int a = 0;
 		if (args.length==0) {
-			System.out.println(helpMessage);
+			System.out.println(Message.HELP);
 			return;
 		}
 		SaveImageWithDPI.formatList.add(new SavePNGImageWithDPI());
@@ -87,15 +85,14 @@ public class JavaSaveImage{
 				if (args[++i].equals("png")||args[i].equals("jpg")||args[i].equals("jpeg")) {
 					extension=args[i];
 				}else{
-					System.out.println("引数指定の誤り : 対応していない形式が指定されました");
-					System.out.println("指定できる形式は以下のとおりです");
+					System.out.println(Message.UNSUPPORTED_FORMAT);
 					System.out.println("png,jpg(default),jpeg");
-					System.out.println(helpMessage);
+					System.out.println(Message.HELP);
 					return;
 				}
 			}else{
-				System.out.println("引数指定の誤り：未知の引数が指定されました");
-				System.out.println(helpMessage);
+				System.out.println(Message.UNKNOWN_OPTION);
+				System.out.println(Message.HELP);
 				return;
 			}
 		}
@@ -105,9 +102,9 @@ public class JavaSaveImage{
 			save();
 			a++;
 		}
-		System.out.print("Request : ");
+		System.out.print(Message.REQUEST+" : ");
 		System.out.println(requestCount);
-		System.out.print("Error : ");
+		System.out.print(Message.ERROR+" : ");
 		System.out.println(errorCount);
 	}
 
@@ -155,7 +152,7 @@ public class JavaSaveImage{
 			if (200 <= responseCode && responseCode <= 299) {
 				inputStream = connection.getInputStream();
 			}else{
-				System.out.println("error");
+				System.out.println(Message.ERROR);
 				System.out.println(responseCode);
 				inputStream = connection.getErrorStream();
 			}
@@ -188,12 +185,12 @@ public class JavaSaveImage{
 				if (200<=responseCode&&responseCode<=299) {
 					bi =ImageIO.read(urlcon.getInputStream());
 				}else{
-					System.out.println("error");
+					System.out.println(Message.ERROR);
 					System.out.println(responseCode);
 					bi=null;
 				}
 			} catch(SocketTimeoutException e) {
-				System.out.println("Time Out!");
+				System.out.println(Message.TIME_OUT);
 				return null;
 			}
 			return bi;
