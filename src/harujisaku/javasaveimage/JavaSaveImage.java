@@ -28,19 +28,6 @@ public class JavaSaveImage{
 	double rotateRadian=Math.toRadians(rotateDegree);
 	boolean isNeedSave=true,isNeedRotate=true;
 
-	String helpMessage = """
-	\tJacaSaveImage.bat [-l|-len|-length search count] -t or -text search text [-o|-option search option] [-p|-path save path] [-s|-no-save] [-e|-extension image type] [-r|-rotate|-no-rotate [rotate degree]]
-		-h,-help : help , this message ヘルプ　このメッセージ
-		-l,-len,-length : length　検索ページの長さ
-		-o,-option : option　検索エンジンに指定するオプション
-		\tlanguage,ysp_q,size,end,imtype,format,ss_view,from,q_type,view,adult,start
-		-t,-text : search text　検索するテキスト
-		-p,-path : save path 保存する場所
-		-s,-no-save : only search 検索のみ
-		-e,-extension : image type 保存形式
-		-r,-no-rotate,-rotate : set rotate degree 回転する方向を指定します。何も指定しなかった場合は横向きになります。
-	""";
-
 	public static void main(String[] args) {
 		new JavaSaveImage().myMain(args);
 	}
@@ -56,7 +43,7 @@ public class JavaSaveImage{
 		SaveImageWithDPI.formatList.add(new SaveJPGImageWithDPI());
 		for (int i=0,len=args.length;i<len ;i++ ) {
 			if ("-h".equals(args[i])||"-help".equals(args[i])) {
-				System.out.println(helpMessage);
+				System.out.println(Message.HELP);
 				return;
 			}else if ("-len".equals(args[i])||"-l".equals(args[i])||"-length".equals(args[i])) {
 				length=Integer.parseInt(args[++i]);
