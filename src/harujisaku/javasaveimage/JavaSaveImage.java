@@ -47,6 +47,9 @@ public class JavaSaveImage{
 			System.out.println(helpMessage);
 			return;
 		}
+		SaveImageWithDPI.formatList.add(new SavePNGImageWithDPI());
+		SaveImageWithDPI.formatList.add(new SaveJPEGImageWithDPI());
+		SaveImageWithDPI.formatList.add(new SaveJPGImageWithDPI());
 		for (int i=0,len=args.length;i<len ;i++ ) {
 			if ("-h".equals(args[i])||"-help".equals(args[i])) {
 				System.out.println(helpMessage);
@@ -123,11 +126,6 @@ public class JavaSaveImage{
 					}
 					FileOutputStream fo = new FileOutputStream(file);
 					SaveImageWithDPI.saveImageWithDPI(fo,bi,96,extension);
-					// if (extension.equals("png")) {
-					// 	ImageWithDPI.saveImageWithDPI(fo,bi,96,"png");
-					// }else{
-					// 	saveJpeg(fo,bi,1f,96);
-					// }
 				} catch(Exception e) {
 					e.printStackTrace();
 				}
@@ -197,44 +195,6 @@ public class JavaSaveImage{
 			e.printStackTrace();
 			return null;
 		}
-	}
-
-	public boolean saveJpeg(FileOutputStream outputStream, BufferedImage img, float compression, int dpi) {
-		// this program made by https://hemohemo.air-nifty.com/hemohemo/2014/07/java-jpeg-d768.html
-		// 品質が0未満だったり1以上だったり渡された画像がnullだったらfalseを返す。
-		if(compression < 0 || compression > 1f||img==null) {
-			return false;
-		}
-		// 元画像が透過pngだった場合エラーが出るので透明部分を白色に変える
-		if (img.getType()>=6) {
-			BufferedImage newBufferedImage = new BufferedImage(img.getWidth(),img.getHeight(), BufferedImage.TYPE_INT_RGB);
-			newBufferedImage.createGraphics().drawImage(img, 0, 0, Color.WHITE, null);
-			img=newBufferedImage;
-		}else if(img.getType()==0){
-			return false;
-		}
-		ImageWriter iw = ImageIO.getImageWritersByFormatName("jpeg").next();
-		try (ImageOutputStream ios = ImageIO.createImageOutputStream(outputStream)) {
-			iw.setOutput(ios);
-
-			JPEGImageWriteParam param = (JPEGImageWriteParam)iw.getDefaultWriteParam();
-			param.setCompressionMode(JPEGImageWriteParam.MODE_EXPLICIT);
-			param.setCompressionQuality(compression);
-
-			IIOMetadata imageMeta = iw.getDefaultImageMetadata(new ImageTypeSpecifier(img), param);
-			Element tree = (Element) imageMeta.getAsTree("javax_imageio_jpeg_image_1.0");
-			Element jfif = (Element) tree.getElementsByTagName("app0JFIF").item(0);
-			jfif.setAttribute("resUnits", "1");
-			jfif.setAttribute("Xdensity", Integer.toString(dpi));
-			jfif.setAttribute("Ydensity", Integer.toString(dpi));
-			imageMeta.setFromTree("javax_imageio_jpeg_image_1.0", tree);
-			iw.write(null, new IIOImage(img, null, imageMeta), param);
-		} catch (IOException ex) {
-			ex.printStackTrace();
-			return false;
-		}
-		iw.dispose();
-		return true;
 	}
 
 	private BufferedImage rotate(BufferedImage bi){
