@@ -82,11 +82,11 @@ public class JavaSaveImage{
 					--i;
 				}
 			}else if("-e".equals(args[i])||"-extension".equals(args[i])){
-				if (args[++i].equals("png")||args[i].equals("jpg")||args[i].equals("jpeg")) {
+				if (SaveImageWithDPI.getFormatNameList().indexOf(args[++i])!=-1) {
 					extension=args[i];
 				}else{
 					System.out.println(Message.UNSUPPORTED_FORMAT);
-					System.out.println("png,jpg(default),jpeg");
+					System.out.println(SaveImageWithDPI.getFormatNameList());
 					System.out.println(Message.HELP);
 					return;
 				}

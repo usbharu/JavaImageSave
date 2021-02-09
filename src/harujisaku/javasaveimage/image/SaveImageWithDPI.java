@@ -18,4 +18,12 @@ public class SaveImageWithDPI {
     }
     return false;
   }
+
+  public static List<String> getFormatNameList(){
+    List<String> formatNameList = new ArrayList<String>();
+    for (ISaveImageWithDPI format : formatList) {
+      formatNameList.add(format.getFormatName());
+    }
+    return formatNameList;
+  }
 }

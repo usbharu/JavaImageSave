@@ -54,8 +54,8 @@ public class SavePNGImageWithDPI implements ISaveImageWithDPI {
     IIOMetadataNode dimension = new IIOMetadataNode("Dimension");
     dimension.appendChild(horizontal);
     dimension.appendChild(vertical);
-    IIOMetadataNode root = new IIOMetadataNode("javax_imageio_jpeg_image_1.0");
+    IIOMetadataNode root = new IIOMetadataNode("javax_imageio_1.0");
     root.appendChild(dimension);
-    metadata.mergeTree("javax_imageio_jpeg_image_1.0",root);
+    metadata.mergeTree("javax_imageio_1.0",root);
   }
 }
