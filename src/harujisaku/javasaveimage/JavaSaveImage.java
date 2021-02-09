@@ -51,6 +51,7 @@ public class JavaSaveImage{
 		-e,-extension : image type 保存形式
 		-r,-no-rotate,-rotate : set rotate degree 回転する方向を指定します。何も指定しなかった場合は横向きになります。
 	""";
+
 	public static void main(String[] args) {
 		new JavaSaveImage().myMain(args);
 	}
