@@ -39,7 +39,6 @@ public class JavaSaveImage{
 	 "-r,-no-rotate,-rotate : set rotate degree 回転する方向を指定します。何も指定しなかった場合は横向きになります。";
 	*/
 
-
 	String helpMessage = """
 	\tJacaSaveImage.bat [-l|-len|-length search count] -t or -text search text [-o|-option search option] [-p|-path save path] [-s|-no-save] [-e|-extension image type] [-r|-rotate|-no-rotate [rotate degree]]
 		-h,-help : help , this message ヘルプ　このメッセージ
