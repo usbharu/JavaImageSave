@@ -16,7 +16,7 @@ import javax.imageio.metadata.*;
 
 import org.w3c.dom.*;
 
-import harujisaku.javasaveimage.*;
+import harujisaku.javasaveimage.image.*;
 
 public class JavaSaveImage{
 	String url = "https://www.so-net.ne.jp/search/image/";

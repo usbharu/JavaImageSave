@@ -1,4 +1,4 @@
-package harujisaku.javasaveimage;
+package harujisaku.javasaveimage.image;
 
 import java.util.Iterator;
 
