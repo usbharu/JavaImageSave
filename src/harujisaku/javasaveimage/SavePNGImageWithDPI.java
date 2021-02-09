@@ -18,7 +18,6 @@ import javax.imageio.metadata.IIOMetadataNode;
 import javax.imageio.stream.ImageOutputStream;
 
 public class SavePNGImageWithDPI implements ISaveImageWithDPI {
-  public final String formatName = "png";
   public boolean saveImageWithDPI(OutputStream output,BufferedImage img,int dpi)throws IOException{
     for (Iterator<ImageWriter> iw = ImageIO.getImageWritersByFormatName("png");iw.hasNext() ;) {
       ImageWriter writer = iw.next();

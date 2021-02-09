@@ -20,7 +20,6 @@ import javax.imageio.stream.ImageOutputStream;
 import org.w3c.dom.Element;
 
 public class SaveJPEGImageWithDPI implements ISaveImageWithDPI {
-  public final String formatName = "jpeg";
   public boolean saveImageWithDPI(OutputStream output,BufferedImage img,int dpi){
     if (img==null) {
       return false;
