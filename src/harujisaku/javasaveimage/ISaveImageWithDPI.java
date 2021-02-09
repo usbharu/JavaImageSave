@@ -6,5 +6,6 @@ import java.io.OutputStream;
 import java.awt.image.BufferedImage;
 
 public interface ISaveImageWithDPI{
-  boolean saveImageWithDPI(OutputStream os,BufferedImage bi,int resolution);
+  String formatName;
+  boolean saveImageWithDPI(OutputStream os,BufferedImage bi,int dpi);
 }

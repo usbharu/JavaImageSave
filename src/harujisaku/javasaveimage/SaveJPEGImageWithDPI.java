@@ -1,6 +1,7 @@
 package harujisaku.javasaveimage;
 
 public class SaveJPEGImageWithDPI implements ISaveImageWithDPI {
+  public static final String formatName = "jpeg";
   public boolean saveImageWithDPI(OutputStream output,BufferedImage img,int dpi){
     if (img==null) {
       return false;

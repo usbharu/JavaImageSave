@@ -1,6 +1,7 @@
 package harujisaku.JavaSaveImage;
 
 public class SavePNGImageWithDPI implements ISaveImageWithDPI {
+  public static final String formatName = "png";
   public static boolean saveImageWithDPI(OutputStream output,BufferedImage img,int dpi){
     for (Iterator<ImageWriter> iw = ImageIO.getImageWritersByFormatName("png");iw.hasNext() ;) {
       ImageWriter writer = iw.next();
