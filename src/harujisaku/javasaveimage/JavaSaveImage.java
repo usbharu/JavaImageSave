@@ -40,7 +40,7 @@ public class JavaSaveImage{
 	public static void main(String[] args) {
 		new JavaSaveImage().myMain(args);
 	}
-	
+
 	private void myMain(String[] args){
 		int a = 0;
 		if (args.length==0) {
@@ -101,7 +101,7 @@ public class JavaSaveImage{
 		System.out.print("Error : ");
 		System.out.println(errorCount);
 	}
-	
+
 	private void save(){
 		m=p.matcher(html);
 		File file = new File(path+"1."+extension);
@@ -123,7 +123,7 @@ public class JavaSaveImage{
 					}
 					FileOutputStream fo = new FileOutputStream(file);
 					if (extension.equals("png")) {
-						ImageWithDpi.saveImageWithDPI(fo,bi,96,"png");
+						ImageWithDPI.saveImageWithDPI(fo,bi,96,"png");
 					}else{
 						saveJpeg(fo,bi,1f,96);
 					}
@@ -133,7 +133,7 @@ public class JavaSaveImage{
 			}
 		}
 	}
-	
+
 	private String getHTML(int count,String text,int start){
 		try {
 			String sendUrl;
@@ -167,7 +167,7 @@ public class JavaSaveImage{
 			return null;
 		}
 	}
-	
+
 	private String getURL(){
 		return m.group(1);
 	}
@@ -197,7 +197,7 @@ public class JavaSaveImage{
 			return null;
 		}
 	}
-	
+
 	public boolean saveJpeg(FileOutputStream outputStream, BufferedImage img, float compression, int dpi) {
 		// this program made by https://hemohemo.air-nifty.com/hemohemo/2014/07/java-jpeg-d768.html
 		// 品質が0未満だったり1以上だったり渡された画像がnullだったらfalseを返す。
@@ -235,7 +235,7 @@ public class JavaSaveImage{
 		iw.dispose();
 		return true;
 	}
-	
+
 	private BufferedImage rotate(BufferedImage bi){
 		if (bi==null) {
 			return null;
