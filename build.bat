@@ -6,8 +6,12 @@ jar -cvf JavaSaveImage.jar -C bin\ .
 jar uvfm JavaSaveImage.jar manifest.mani
 
 java -classpath lang -jar JavaSaveImage.jar
+if not %ERRORLEVEL% == 0 (
+pause
+exit
+)
 java -classpath .;lang -jar JavaSaveImage.jar -t "t" -l 1
+pause
 del *.jpg
 del *.png
 del *.jpeg
-pause
