@@ -30,7 +30,6 @@ public class JavaSaveImage{
 	boolean isNeedSave=true,isNeedRotate=true;
 
 	public static void main(String[] args) {
-		Locale.setDefault(Locale.FRANCE);
 		new JavaSaveImage().myMain(args);
 	}
 
