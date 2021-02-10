@@ -191,38 +191,4 @@ public class JavaSaveImage{
 			return null;
 		}
 	}
-
-	// private BufferedImage rotate(BufferedImage bi){
-	// 	if (bi==null) {
-	// 		return null;
-	// 	}
-	// 	if (!isNeedRotate) {
-	// 		double width=bi.getWidth(),height=bi.getHeight();
-	// 		int afterWidth=(int)Math.round(height*Math.abs(Math.sin(rotateRadian))+width*Math.abs(Math.cos(rotateRadian)));
-	// 		int afterHeight=(int)Math.round(width*Math.abs(Math.sin(rotateRadian))+height*Math.abs(Math.cos(rotateRadian)));
-	// 		BufferedImage out = new BufferedImage(afterWidth,afterHeight,BufferedImage.TYPE_INT_RGB);
-	// 		Graphics2D g2 = out.createGraphics();
-	// 		AffineTransform rotate = new AffineTransform();
-	// 		AffineTransform move = new AffineTransform();
-	// 		rotate.rotate(rotateRadian,width/2,height/2);
-	// 		move.translate(afterWidth/2-width/2,afterHeight/2-height/2);
-	// 		move.concatenate(rotate);
-	// 		g2.drawImage(bi,move,null);
-	// 		return out;
-	// 	}else{
-	// 		int width=bi.getWidth(),height=bi.getHeight();
-	// 		if (width<height) {
-	// 			BufferedImage out = new BufferedImage(height,width,BufferedImage.TYPE_INT_RGB);
-	// 			Graphics2D g2 = out.createGraphics();
-	// 			AffineTransform rotate = new AffineTransform();
-	// 			AffineTransform move = new AffineTransform();
-	// 			rotate.rotate(Math.toRadians(90),0.0,0.0);
-	// 			move.translate(height,0.0);
-	// 			move.concatenate(rotate);
-	// 			g2.drawImage(bi,move,null);
-	// 			return out;
-	// 		}
-	// 		return bi;
-	// 	}
-	// }
 }
