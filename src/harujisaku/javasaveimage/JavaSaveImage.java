@@ -3,6 +3,7 @@ package harujisaku.javasaveimage;
 import java.io.*;
 
 import java.util.regex.*;
+import java.util.Locale;
 
 import java.net.*;
 
@@ -29,6 +30,7 @@ public class JavaSaveImage{
 	boolean isNeedSave=true,isNeedRotate=true;
 
 	public static void main(String[] args) {
+		Locale.setDefault(Locale.FRANCE);
 		new JavaSaveImage().myMain(args);
 	}
 

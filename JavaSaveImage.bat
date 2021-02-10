@@ -1,3 +1,3 @@
 @echo off
 
-jre\bin\java.exe -jar JavaSaveImage.jar %*
+jre\bin\java.exe -classpath .;lang -jar JavaSaveImage.jar %*
