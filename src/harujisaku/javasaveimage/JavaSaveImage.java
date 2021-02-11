@@ -21,6 +21,8 @@ import harujisaku.javasaveimage.image.*;
 import harujisaku.javasaveimage.util.*;
 
 public class JavaSaveImage{
+	Option op = new Option("a");
+	OptionManager opm = new OptionManager();
 	String url = "https://www.so-net.ne.jp/search/image/";
 	Pattern p = Pattern.compile("<a.*?href\\s*=\\s*[\"|'](https?://.*?)[\"|'].*? rel=\"search_result\".*?>");
 	Matcher m;
@@ -39,6 +41,12 @@ public class JavaSaveImage{
 			System.out.println(Message.HELP);
 			return;
 		}
+		op.add("b");
+		Option op2 = new Option("c");
+		opm.add(op2);
+		opm.add(op);
+		opm.optionProcess(new String[]{"c"});
+		System.out.println(opm.indexOf(null));
 		SaveImageWithDPI.formatList.add(new SavePNGImageWithDPI());
 		SaveImageWithDPI.formatList.add(new SaveJPEGImageWithDPI());
 		SaveImageWithDPI.formatList.add(new SaveJPGImageWithDPI());
