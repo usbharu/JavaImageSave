@@ -33,7 +33,7 @@ public class OptionManager extends ArrayList<Option>{
     return -1;
   }
 
-  public boolean contains(ArrayList<String> searchOptionList){
+  public boolean contains(List<String> searchOptionList){
     return indexOf(searchOptionList)==0?true:false;
   }
 }
