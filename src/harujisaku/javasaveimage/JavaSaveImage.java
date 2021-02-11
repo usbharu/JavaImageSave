@@ -43,6 +43,12 @@ public class JavaSaveImage{
 		}
 		op.add("b");
 		Option op2 = new Option("c");
+		op2.run(new Runnable(){
+			@Override
+			public void run(){
+				System.out.println("hogehogehagehage");
+			}
+		});
 		opm.add(op2);
 		opm.add(op);
 		opm.optionProcess(new String[]{"c"});
