@@ -15,10 +15,10 @@ public class OptionManager extends ArrayList<Option>{
   }
 
   public void optionProcess(String[] arg){
-    System.out.println(indexOf(new ArrayList<String>(Arrays.asList(arg))));
+    indexOf(new ArrayList<String>(Arrays.asList(arg)));
   }
 
-  int indexOf(ArrayList<String> searchOptionList){
+  private int indexOf(ArrayList<String> searchOptionList){
     for (int i=0,len=size();i<len;i++ ) {
       for (String option : searchOptionList ) {
         if (get(i).contains(option)){
@@ -27,5 +27,9 @@ public class OptionManager extends ArrayList<Option>{
       }
     }
     return -1;
+  }
+
+  private boolean contains(ArrayList<String> searchOptionList){
+    return indexOf(searchOptionList)==0?true:false;
   }
 }
