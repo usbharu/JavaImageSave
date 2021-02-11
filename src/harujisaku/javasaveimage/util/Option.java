@@ -46,4 +46,11 @@ public class Option extends ArrayList<String>{
   public void run(Runnable run){
     this.run=run;
   }
+
+  void run(){
+    if (run==null) {
+      return;
+    }
+    run.run();
+  }
 }

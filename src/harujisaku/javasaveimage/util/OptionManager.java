@@ -11,14 +11,18 @@ public class OptionManager extends ArrayList<Option>{
   }
 
   public OptionManager(){
-
+    super();
   }
 
   public void optionProcess(String[] arg){
-    indexOf(new ArrayList<String>(Arrays.asList(arg)));
+    int index = indexOf(new ArrayList<String>(Arrays.asList(arg)));
+    get(index).run();
   }
 
-  private int indexOf(ArrayList<String> searchOptionList){
+  public int indexOf(List<String> searchOptionList){
+    if (searchOptionList==null) {
+      return -1;
+    }
     for (int i=0,len=size();i<len;i++ ) {
       for (String option : searchOptionList ) {
         if (get(i).contains(option)){
@@ -29,7 +33,7 @@ public class OptionManager extends ArrayList<Option>{
     return -1;
   }
 
-  private boolean contains(ArrayList<String> searchOptionList){
+  public boolean contains(ArrayList<String> searchOptionList){
     return indexOf(searchOptionList)==0?true:false;
   }
 }
