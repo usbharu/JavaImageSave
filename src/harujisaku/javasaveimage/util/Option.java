@@ -53,4 +53,11 @@ public class Option extends ArrayList<String>{
     }
     run.run();
   }
+
+  public boolean add(String... options){
+    for (String option :options ) {
+      add(option);
+    }
+    return true;
+  }
 }

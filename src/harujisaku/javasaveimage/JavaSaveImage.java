@@ -21,13 +21,11 @@ import harujisaku.javasaveimage.image.*;
 import harujisaku.javasaveimage.util.*;
 
 public class JavaSaveImage{
-	Option op = new Option("a");
-	OptionManager opm = new OptionManager();
 	String url = "https://www.so-net.ne.jp/search/image/";
 	Pattern p = Pattern.compile("<a.*?href\\s*=\\s*[\"|'](https?://.*?)[\"|'].*? rel=\"search_result\".*?>");
 	Matcher m;
 	String html="",option="",texts="java",path="",extension="jpg";
-	int length=5,requestCount=0,errorCount=0,rotateDegree=0;
+	int length=1,requestCount=0,errorCount=0,rotateDegree=0;
 	double rotateRadian=Math.toRadians(rotateDegree);
 	boolean isNeedSave=true,isNeedRotate=true;
 
@@ -41,57 +39,79 @@ public class JavaSaveImage{
 			System.out.println(Message.HELP);
 			return;
 		}
-		op.add("b");
-		Option op2 = new Option("c");
-		op2.run(new Test());
-		opm.add(op2);
-		opm.add(op);
-		System.out.println(opm.indexOf(null));
+
+		Option helpOption = new Option("-h");
+		helpOption.add("-help");
+
+		Option lengthOption = new Option("-l");
+		lengthOption.add("-length");
+
+		Option optionOption = new Option("-o");
+		optionOption.add("-op","-option");
+
+		Option textOption = new Option("-t");
+		textOption.add("-text");
+
+		Option pathOption = new Option("-p");
+		pathOption.add("-path");
+
+		Option saveOption = new Option("-s");
+		saveOption.add("-no-save");
+
+		Option rotateOption = new Option("-r");
+		rotateOption.add("-no-rotate","-rotate");
+
+		Option extensionOption = new Option("-e");
+		extensionOption.add("-extension");
+
+		OptionManager opm = new OptionManager();
+		opm.add(helpOption,lengthOption,optionOption,textOption,pathOption,saveOption,rotateOption,extensionOption);
+
 		SaveImageWithDPI.formatList.add(new SavePNGImageWithDPI());
 		SaveImageWithDPI.formatList.add(new SaveJPEGImageWithDPI());
 		SaveImageWithDPI.formatList.add(new SaveJPGImageWithDPI());
-		for (int i=0,len=args.length;i<len ;i++ ) {
-			if ("-h".equals(args[i])||"-help".equals(args[i])) {
-				System.out.println(Message.HELP);
-				return;
-			}else if ("-len".equals(args[i])||"-l".equals(args[i])||"-length".equals(args[i])) {
-				length=Integer.parseInt(args[++i]);
-			}else if("-o".equals(args[i])||"-option".equals(args[i])){
-				option=args[++i];
-			}else if ("-t".equals(args[i])||"-text".equals(args[i])) {
-				texts=args[++i];
-			}else if ("-p".equals(args[i])||"-path".equals(args[i])) {
-				path=args[++i];
-			}else if("-s".equals(args[i])||"-no-save".equals(args[i])){
-				isNeedSave=false;
-			}else if("-r".equals(args[i])||"-no-rotate".equals(args[i])||"-rotate".equals(args[i])){
-				try {
-					isNeedRotate=false;
-					if (args.length>i+1) {
-						rotateDegree=Integer.parseInt(args[++i]);
-						rotateRadian=Math.toRadians(rotateDegree);
-						System.out.println(rotateDegree);
-						System.out.println(rotateRadian);
-					}
-				} catch(NumberFormatException e) {
-					isNeedRotate=false;
-					--i;
-				}
-			}else if("-e".equals(args[i])||"-extension".equals(args[i])){
-				if (SaveImageWithDPI.getFormatNameList().indexOf(args[++i])!=-1) {
-					extension=args[i];
-				}else{
-					System.out.println(Message.UNSUPPORTED_FORMAT);
-					System.out.println(SaveImageWithDPI.getFormatNameList());
-					System.out.println(Message.HELP);
-					return;
-				}
-			}else{
-				System.out.println(Message.UNKNOWN_OPTION);
-				System.out.println(Message.HELP);
-				return;
-			}
-		}
+		// for (int i=0,len=args.length;i<len ;i++ ) {
+		// 	if ("-h".equals(args[i])||"-help".equals(args[i])) {
+		// 		System.out.println(Message.HELP);
+		// 		return;
+		// 	}else if ("-len".equals(args[i])||"-l".equals(args[i])||"-length".equals(args[i])) {
+		// 		length=Integer.parseInt(args[++i]);
+		// 	}else if("-o".equals(args[i])||"-option".equals(args[i])){
+		// 		option=args[++i];
+		// 	}else if ("-t".equals(args[i])||"-text".equals(args[i])) {
+		// 		texts=args[++i];
+		// 	}else if ("-p".equals(args[i])||"-path".equals(args[i])) {
+		// 		path=args[++i];
+		// 	}else if("-s".equals(args[i])||"-no-save".equals(args[i])){
+		// 		isNeedSave=false;
+		// 	}else if("-r".equals(args[i])||"-no-rotate".equals(args[i])||"-rotate".equals(args[i])){
+		// 		try {
+		// 			isNeedRotate=false;
+		// 			if (args.length>i+1) {
+		// 				rotateDegree=Integer.parseInt(args[++i]);
+		// 				rotateRadian=Math.toRadians(rotateDegree);
+		// 				System.out.println(rotateDegree);
+		// 				System.out.println(rotateRadian);
+		// 			}
+		// 		} catch(NumberFormatException e) {
+		// 			isNeedRotate=false;
+		// 			--i;
+		// 		}
+		// 	}else if("-e".equals(args[i])||"-extension".equals(args[i])){
+		// 		if (SaveImageWithDPI.getFormatNameList().indexOf(args[++i])!=-1) {
+		// 			extension=args[i];
+		// 		}else{
+		// 			System.out.println(Message.UNSUPPORTED_FORMAT);
+		// 			System.out.println(SaveImageWithDPI.getFormatNameList());
+		// 			System.out.println(Message.HELP);
+		// 			return;
+		// 		}
+		// 	}else{
+		// 		System.out.println(Message.UNKNOWN_OPTION);
+		// 		System.out.println(Message.HELP);
+		// 		return;
+		// 	}
+		// }
 		System.out.println(texts);
 		while(length>a){
 			html=getHTML(20,texts,a*20);
@@ -102,7 +122,6 @@ public class JavaSaveImage{
 		System.out.println(requestCount);
 		System.out.print(Message.ERROR+" : ");
 		System.out.println(errorCount);
-		opm.optionProcess(new String[]{"c"});
 	}
 
 	private void save(){
@@ -198,15 +217,6 @@ public class JavaSaveImage{
 		} catch(Exception e) {
 			e.printStackTrace();
 			return null;
-		}
-	}
-
-	class Test implements Runnable{
-		@Override
-		public void run(){
-			System.out.println(length);
-			length=3;
-			System.out.println(length);
 		}
 	}
 }

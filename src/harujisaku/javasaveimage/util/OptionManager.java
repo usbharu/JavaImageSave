@@ -41,4 +41,11 @@ public class OptionManager extends ArrayList<Option>{
   private boolean contains(List<String> searchOptionList){
     return indexOf(searchOptionList)==0;
   }
+
+  public boolean add(Option... options){
+    for (Option option :options ) {
+      add(option);
+    }
+    return true;
+  }
 }
