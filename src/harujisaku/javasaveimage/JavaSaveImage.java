@@ -70,48 +70,7 @@ public class JavaSaveImage{
 		SaveImageWithDPI.formatList.add(new SavePNGImageWithDPI());
 		SaveImageWithDPI.formatList.add(new SaveJPEGImageWithDPI());
 		SaveImageWithDPI.formatList.add(new SaveJPGImageWithDPI());
-		// for (int i=0,len=args.length;i<len ;i++ ) {
-		// 	if ("-h".equals(args[i])||"-help".equals(args[i])) {
-		// 		System.out.println(Message.HELP);
-		// 		return;
-		// 	}else if ("-len".equals(args[i])||"-l".equals(args[i])||"-length".equals(args[i])) {
-		// 		length=Integer.parseInt(args[++i]);
-		// 	}else if("-o".equals(args[i])||"-option".equals(args[i])){
-		// 		option=args[++i];
-		// 	}else if ("-t".equals(args[i])||"-text".equals(args[i])) {
-		// 		texts=args[++i];
-		// 	}else if ("-p".equals(args[i])||"-path".equals(args[i])) {
-		// 		path=args[++i];
-		// 	}else if("-s".equals(args[i])||"-no-save".equals(args[i])){
-		// 		isNeedSave=false;
-		// 	}else if("-r".equals(args[i])||"-no-rotate".equals(args[i])||"-rotate".equals(args[i])){
-		// 		try {
-		// 			isNeedRotate=false;
-		// 			if (args.length>i+1) {
-		// 				rotateDegree=Integer.parseInt(args[++i]);
-		// 				rotateRadian=Math.toRadians(rotateDegree);
-		// 				System.out.println(rotateDegree);
-		// 				System.out.println(rotateRadian);
-		// 			}
-		// 		} catch(NumberFormatException e) {
-		// 			isNeedRotate=false;
-		// 			--i;
-		// 		}
-		// 	}else if("-e".equals(args[i])||"-extension".equals(args[i])){
-		// 		if (SaveImageWithDPI.getFormatNameList().indexOf(args[++i])!=-1) {
-		// 			extension=args[i];
-		// 		}else{
-		// 			System.out.println(Message.UNSUPPORTED_FORMAT);
-		// 			System.out.println(SaveImageWithDPI.getFormatNameList());
-		// 			System.out.println(Message.HELP);
-		// 			return;
-		// 		}
-		// 	}else{
-		// 		System.out.println(Message.UNKNOWN_OPTION);
-		// 		System.out.println(Message.HELP);
-		// 		return;
-		// 	}
-		// }
+
 		System.out.println(texts);
 		while(length>a){
 			html=getHTML(20,texts,a*20);
