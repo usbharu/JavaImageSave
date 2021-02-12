@@ -186,15 +186,15 @@ public class JavaSaveImage{
 
 	class HelpOption extends OptionRunner {
 		@Override
-		public run(){
+		public void run(){
 			System.out.println(Message.HELP);
 		}
 	}
 
 	class lengthOption extends OptionRunner{
 		@Override
-		public run(){
-			
+		public void run(){
+
 		}
 	}
 }
