@@ -14,9 +14,13 @@ public class OptionManager extends ArrayList<Option>{
     super();
   }
 
-  public void optionProcess(String[] arg){
+  public void optionProcess(String[] args){
     for (Option option : this ) {
-      option.run();
+      for (String arg :args ) {
+        if (option.contains(arg)) {
+          option.run();
+        }
+      }
     }
   }
 
