@@ -178,4 +178,23 @@ public class JavaSaveImage{
 			return null;
 		}
 	}
+
+	abstract class OptionRunner implements Runnable{
+		@Override
+		abstract public void run();
+	}
+
+	class HelpOption extends OptionRunner {
+		@Override
+		public run(){
+			System.out.println(Message.HELP);
+		}
+	}
+
+	class lengthOption extends OptionRunner{
+		@Override
+		public run(){
+			
+		}
+	}
 }
