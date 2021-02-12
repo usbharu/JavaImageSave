@@ -39,6 +39,6 @@ public class OptionManager extends ArrayList<Option>{
   }
 
   private boolean contains(List<String> searchOptionList){
-    return indexOf(searchOptionList)==0?true:false;
+    return indexOf(searchOptionList)==0;
   }
 }
