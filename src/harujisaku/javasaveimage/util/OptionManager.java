@@ -15,8 +15,9 @@ public class OptionManager extends ArrayList<Option>{
   }
 
   public void optionProcess(String[] arg){
-    int index = indexOf(new ArrayList<String>(Arrays.asList(arg)));
-    get(index).run();
+    for (Option option : this ) {
+      option.run();
+    }
   }
 
   private int indexOf(List<String> searchOptionList){
