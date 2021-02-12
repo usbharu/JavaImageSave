@@ -19,7 +19,7 @@ public class OptionManager extends ArrayList<Option>{
     get(index).run();
   }
 
-  public int indexOf(List<String> searchOptionList){
+  private int indexOf(List<String> searchOptionList){
     if (searchOptionList==null) {
       return -1;
     }
@@ -33,7 +33,7 @@ public class OptionManager extends ArrayList<Option>{
     return -1;
   }
 
-  public boolean contains(List<String> searchOptionList){
+  private boolean contains(List<String> searchOptionList){
     return indexOf(searchOptionList)==0?true:false;
   }
 }
