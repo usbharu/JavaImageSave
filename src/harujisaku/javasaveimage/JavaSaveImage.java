@@ -43,15 +43,9 @@ public class JavaSaveImage{
 		}
 		op.add("b");
 		Option op2 = new Option("c");
-		op.run(new Runnable(){
-			@Override
-			public void run(){
-				System.out.println("hogehogehagehage");
-			}
-		});
+		op2.run(new Test());
 		opm.add(op2);
 		opm.add(op);
-		opm.optionProcess(new String[]{"c"});
 		System.out.println(opm.indexOf(null));
 		SaveImageWithDPI.formatList.add(new SavePNGImageWithDPI());
 		SaveImageWithDPI.formatList.add(new SaveJPEGImageWithDPI());
@@ -108,6 +102,7 @@ public class JavaSaveImage{
 		System.out.println(requestCount);
 		System.out.print(Message.ERROR+" : ");
 		System.out.println(errorCount);
+		opm.optionProcess(new String[]{"c"});
 	}
 
 	private void save(){
@@ -203,6 +198,15 @@ public class JavaSaveImage{
 		} catch(Exception e) {
 			e.printStackTrace();
 			return null;
+		}
+	}
+
+	class Test implements Runnable{
+		@Override
+		public void run(){
+			System.out.println(length);
+			length=3;
+			System.out.println(length);
 		}
 	}
 }
