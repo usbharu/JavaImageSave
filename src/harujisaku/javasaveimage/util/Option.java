@@ -54,6 +54,10 @@ public class Option extends ArrayList<String>{
     run.run();
   }
 
+  public void request(OptionArgs optionargs){
+    
+  }
+
   public boolean add(String... options){
     for (String option :options ) {
       add(option);
