@@ -34,7 +34,7 @@ public class OptionManager extends ArrayList<Option>{
       for (int j = 0,lenj=argEnd-argStart+1;j<lenj ; j++) {
         argList.add(args[j+argStart]);
       }
-        useOption.get(i).run(argList.toArray(new String[argList.size()]));
+        useOption.get(i).run(optionFormating(useOption.get(i),argList.toArray(new String[argList.size()])));
     }
   }
 
@@ -83,5 +83,28 @@ public class OptionManager extends ArrayList<Option>{
       add(option);
     }
     return true;
+  }
+
+  private Object[] optionFormating(Option option,String[] args){
+    OptionArgs[] optionArgs = option.getMode();
+    Object[] returnObject = new Object[args.length];
+    int i = 0;
+    for (String arg :args ) {
+      switch (optionArgs[i]) {
+        case INTEGER:
+        returnObject[i] = Integer.valueOf(arg);
+        break;
+        case STRING:
+        returnObject[i] = arg;
+        break;
+        case DOUBLE:
+        returnObject[i] = Double.valueOf(arg);
+        break;
+        case BOOLEAN:
+        returnObject[i] = Boolean.valueOf(arg);
+        break;
+      }
+    }
+    return returnObject;
   }
 }

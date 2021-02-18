@@ -10,6 +10,8 @@ public class Option extends ArrayList<String>{
 
   private IRunOption run = null;
 
+  private OptionArgs[] optionArgs = new OptionArgs[]{OptionArgs.STRING};
+
   public Option(List<String> option){
     super(option);
   }
@@ -47,8 +49,12 @@ public class Option extends ArrayList<String>{
     this.run=run;
   }
 
-  public void setMode(OptionArgs optionMode){
+  public void setMode(OptionArgs... optionMode){
+    optionArgs=optionMode;
+  }
 
+  OptionArgs[] getMode(){
+    return optionArgs;
   }
 
   void run(Object[] obj){
@@ -57,11 +63,6 @@ public class Option extends ArrayList<String>{
     }
     run.runOption(obj);
   }
-
-  public void request(OptionArgs optionargs){
-
-  }
-
   public boolean add(String... options){
     for (String option :options ) {
       add(option);
