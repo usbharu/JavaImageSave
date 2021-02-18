@@ -59,10 +59,66 @@ public class JavaSaveImage{
 			}
 		});
 
+		lengthOption.setMode(OptionArgs.INTEGER);
 		lengthOption.setRun(new IRunOption(){
 			@Override
 			public void runOption(Object[] obj){
 				length=(int)obj[0];
+			}
+		});
+
+		optionOption.setMode(OptionArgs.STRING);
+		optionOption.setRun(new IRunOption(){
+			@Override
+			public void runOption(Object[] obj){
+				option=(String)obj[0];
+			}
+		});
+
+		textOption.setMode(OptionArgs.STRING);
+		textOption.setRun(new IRunOption(){
+			@Override
+			public void runOption(Object[] obj){
+				texts=(String)obj[0];
+			}
+		});
+
+		pathOption.setMode(OptionArgs.STRING);
+		pathOption.setRun(new IRunOption(){
+			@Override
+			public void runOption(Object[] obj){
+				path=(String)obj[0];
+			}
+		});
+
+		saveOption.setMode(OptionArgs.BOOLEAN);
+		saveOption.setRun(new IRunOption(){
+			@Override
+			public void runOption(Object[] obj){
+				if (obj.length==0) {
+					isNeedSave=false;
+					return;
+				}
+				isNeedSave=(boolean)obj[0];
+			}
+		});
+
+		rotateOption.setMode(OptionArgs.INTEGER);
+		rotateOption.setRun(new IRunOption(){
+			@Override
+			public void runOption(Object[] obj){
+				isNeedRotate=false;
+				if (obj.length!=0) {
+					rotateDegree=(int)obj[0];
+				}
+			}
+		});
+
+		extensionOption.setMode(OptionArgs.STRING);
+		extensionOption.setRun(new IRunOption(){
+			@Override
+			public void runOption(Object[] obj){
+				extension=(String)obj[0];
 			}
 		});
 
