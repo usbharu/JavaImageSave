@@ -69,11 +69,4 @@ public class Option extends ArrayList<String>{
     }
     return true;
   }
-
-  public void test(){
-    System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-    System.out.println(runOption==null);
-    System.out.println(hashCode());
-    System.out.println("bbbbbbbbbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaa");
-  }
 }
