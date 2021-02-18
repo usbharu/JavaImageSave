@@ -46,13 +46,7 @@ public class JavaSaveImage{
 
 		Option lengthOption = new Option("-l");
 		lengthOption.add("-length");
-		lengthOption.setRun(new IRunOption(){
-			@Override
-			public void runOption(Object[] object){
-				System.out.println("aaaaaaaaaaaaaaaaaaaaaaa");
-				System.out.println(object[0]);
-			}
-		});
+
 		Option optionOption = new Option("-o");
 		optionOption.add("-op","-option");
 
@@ -72,27 +66,7 @@ public class JavaSaveImage{
 		extensionOption.add("-extension");
 
 		opm.add(helpOption,lengthOption,optionOption,textOption,pathOption,saveOption,rotateOption,extensionOption);
-		lengthOption.setRun(new IRunOption(){
-			@Override
-			public void runOption(Object[] object){
-				System.out.println("aaaaaaaaaaaaaaaaaaaaaaa");
-				System.out.println((int)object[0]+1);
-			}
-		});
-		pathOption.setRun(new IRunOption(){
-			@Override
-			public void runOption(Object[] object){
-				System.out.println("aaaaaaaaaaaaaaaaaaaaaaa");
-				System.out.println(object[0]);
-			}
-		});
-		textOption.setRun(new IRunOption(){
-			@Override
-			public void runOption(Object[] object){
-				System.out.println("dakjfdlkajflkdja");
-				System.out.println(object[0]);
-			}
-		});
+
 		opm.optionProcess(args);
 		SaveImageWithDPI.formatList.add(new SavePNGImageWithDPI());
 		SaveImageWithDPI.formatList.add(new SaveJPEGImageWithDPI());

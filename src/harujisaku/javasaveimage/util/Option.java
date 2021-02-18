@@ -8,7 +8,7 @@ public class Option extends ArrayList<String>{
   private int argumentLengthMax = 1;
   private int argumentLengthMin = 1;
 
-  private IRunOption runOption;
+  private IRunOption runOption = new IRunOption(){@Override public void runOption(Object[] obj){}};
 
   private OptionArgs[] optionArgs = new OptionArgs[]{OptionArgs.INTEGER};
 
@@ -40,9 +40,11 @@ public class Option extends ArrayList<String>{
     this.argumentLengthMax = argumentLengthMax;
   }
 
-  public Option(String option){
+  public Option(String... option){
     super();
-    super.add(option);
+    for (String str : option ) {
+      super.add(str);
+    }
   }
 
   public void setRun(IRunOption runa){
