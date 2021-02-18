@@ -1,4 +1,4 @@
-package harujisaku.javasavaimage.util;
+package harujisaku.javasaveimage.util;
 
 public enum OptionArgs{
   INTEGER,

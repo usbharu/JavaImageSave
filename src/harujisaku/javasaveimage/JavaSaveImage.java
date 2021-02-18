@@ -66,7 +66,7 @@ public class JavaSaveImage{
 
 		OptionManager opm = new OptionManager();
 		opm.add(helpOption,lengthOption,optionOption,textOption,pathOption,saveOption,rotateOption,extensionOption);
-
+		opm.optionProcess(args);
 		SaveImageWithDPI.formatList.add(new SavePNGImageWithDPI());
 		SaveImageWithDPI.formatList.add(new SaveJPEGImageWithDPI());
 		SaveImageWithDPI.formatList.add(new SaveJPGImageWithDPI());

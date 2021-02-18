@@ -8,7 +8,7 @@ public class Option extends ArrayList<String>{
   private int argumentLengthMax = 1;
   private int argumentLengthMin = 1;
 
-  private Runnable run = null;
+  private IRunOption run = null;
 
   public Option(List<String> option){
     super(option);
@@ -43,19 +43,23 @@ public class Option extends ArrayList<String>{
     super.add(option);
   }
 
-  public void run(Runnable run){
+  public void run(IRunOption run){
     this.run=run;
   }
 
-  void run(){
+  public void setMode(OptionArgs optionMode){
+
+  }
+
+  void run(Object[] obj){
     if (run==null) {
       return;
     }
-    run.run();
+    run.runOption(obj);
   }
 
   public void request(OptionArgs optionargs){
-    
+
   }
 
   public boolean add(String... options){

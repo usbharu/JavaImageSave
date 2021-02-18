@@ -1,5 +1,5 @@
-package harujisaku.javasavaimage;
+package harujisaku.javasaveimage.util;
 
 public interface IRunOption{
-  public void runOption(Object object);
+  public void runOption(Object[] object);
 }
