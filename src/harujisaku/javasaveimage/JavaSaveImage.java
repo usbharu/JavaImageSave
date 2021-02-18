@@ -25,7 +25,7 @@ public class JavaSaveImage{
 	Pattern p = Pattern.compile("<a.*?href\\s*=\\s*[\"|'](https?://.*?)[\"|'].*? rel=\"search_result\".*?>");
 	Matcher m;
 	String html="",option="",texts="java",path="",extension="jpg";
-	int length=5,requestCount=0,errorCount=0,rotateDegree=0;
+	int length=5,requestCount=0,errorCount=0,rotateDegree=0,timeOut=5000;
 	double rotateRadian=Math.toRadians(rotateDegree);
 	boolean isNeedSave=true,isNeedRotate=true;
 
@@ -123,7 +123,6 @@ public class JavaSaveImage{
 		});
 
 		opm.optionProcess(args);
-		
 		SaveImageWithDPI.formatList.add(new SavePNGImageWithDPI());
 		SaveImageWithDPI.formatList.add(new SaveJPEGImageWithDPI());
 		SaveImageWithDPI.formatList.add(new SaveJPGImageWithDPI());
@@ -213,8 +212,8 @@ public class JavaSaveImage{
 	private BufferedImage getImage(String imageURL){
 		try {
 			HttpURLConnection urlcon =(HttpURLConnection)new URL(imageURL).openConnection();
-			urlcon.setConnectTimeout(5000);
-			urlcon.setReadTimeout(5000);
+			urlcon.setConnectTimeout(timeOut);
+			urlcon.setReadTimeout(timeOut);
 			BufferedImage bi;
 			try {
 				int responseCode=urlcon.getResponseCode();
