@@ -40,7 +40,6 @@ public class JavaSaveImage{
 			return;
 		}
 
-		OptionManager opm = new OptionManager();
 		Option helpOption = new Option("-h","-help");
 		Option lengthOption = new Option("-l","-length");
 		Option optionOption = new Option("-o","-op","-option");
@@ -49,6 +48,7 @@ public class JavaSaveImage{
 		Option saveOption = new Option("-s","-no-save");
 		Option rotateOption = new Option("-r","-no-rotate","-rotate");
 		Option extensionOption = new Option("-e","-extension");
+		OptionManager opm = new OptionManager();
 		opm.add(helpOption,lengthOption,optionOption,textOption,pathOption,saveOption,rotateOption,extensionOption);
 
 		helpOption.setRun(new IRunOption(){
@@ -123,6 +123,7 @@ public class JavaSaveImage{
 		});
 
 		opm.optionProcess(args);
+		
 		SaveImageWithDPI.formatList.add(new SavePNGImageWithDPI());
 		SaveImageWithDPI.formatList.add(new SaveJPEGImageWithDPI());
 		SaveImageWithDPI.formatList.add(new SaveJPGImageWithDPI());
