@@ -18,20 +18,23 @@ public class OptionManager extends ArrayList<Option>{
 
   public void optionProcess(String[] args){
     List<Integer> argIndexList = new ArrayList<Integer>();
+    List<Option> useOption = new ArrayList<Option>();
     for (int i = 0,len=args.length;i<len ;i++ ) {
-      System.out.println(args[i]);
-      if (contains(args[i])) {
+      int optionIndex = indexOf(args[i]);
+      if (optionIndex!=-1) {
+        useOption.add(get(optionIndex));
         argIndexList.add(i);
       }
     }
-    System.out.println("---------------");
     for (int i = 0,len=argIndexList.size()-1;i<len ;i++ ) {
-    int argOption = argIndexList.get(i);
-    int argStart = argOption+1;
-    int argEnd = argIndexList.get(i+1)-1;
-    System.out.println("op"+argOption);
-    System.out.println("st"+argStart);
-    System.out.println("en"+argEnd);
+      int argOption = argIndexList.get(i);
+      int argStart = argOption+1;
+      int argEnd = argIndexList.get(i+1)-1;
+      List<String> argList = new ArrayList<String>();
+      for (int j = 0,lenj=argEnd-argStart+1;j<lenj ; j++) {
+        argList.add(args[j+argStart]);
+      }
+        useOption.get(i).run(argList.toArray(new String[argList.size()]));
     }
   }
 
