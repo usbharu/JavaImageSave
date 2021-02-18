@@ -8,9 +8,9 @@ public class Option extends ArrayList<String>{
   private int argumentLengthMax = 1;
   private int argumentLengthMin = 1;
 
-  private IRunOption run = null;
+  private IRunOption runOption;
 
-  private OptionArgs[] optionArgs = new OptionArgs[]{OptionArgs.STRING};
+  private OptionArgs[] optionArgs = new OptionArgs[]{OptionArgs.INTEGER};
 
   public Option(List<String> option){
     super(option);
@@ -45,8 +45,8 @@ public class Option extends ArrayList<String>{
     super.add(option);
   }
 
-  public void run(IRunOption run){
-    this.run=run;
+  public void setRun(IRunOption runa){
+    runOption=runa;
   }
 
   public void setMode(OptionArgs... optionMode){
@@ -58,15 +58,20 @@ public class Option extends ArrayList<String>{
   }
 
   void run(Object[] obj){
-    if (run==null) {
-      return;
-    }
-    run.runOption(obj);
+    runOption.runOption(obj);
   }
+
   public boolean add(String... options){
     for (String option :options ) {
       add(option);
     }
     return true;
+  }
+
+  public void test(){
+    System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+    System.out.println(runOption==null);
+    System.out.println(hashCode());
+    System.out.println("bbbbbbbbbbbbbbbbbbbbbbbbbbbaaaaaaaaaaaa");
   }
 }

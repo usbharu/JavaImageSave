@@ -22,8 +22,8 @@ public class OptionManager extends ArrayList<Option>{
     for (int i = 0,len=args.length;i<len ;i++ ) {
       int optionIndex = indexOf(args[i]);
       if (optionIndex!=-1) {
-        useOption.add(get(optionIndex));
         argIndexList.add(i);
+        useOption.add(get(optionIndex));
       }
     }
     for (int i = 0,len=argIndexList.size()-1;i<len ;i++ ) {
@@ -38,9 +38,6 @@ public class OptionManager extends ArrayList<Option>{
     }
   }
 
-  private Object runOption(Option opt){
-    return null;
-  }
 
   private int indexOf(List<String> searchOptionList){
     if (searchOptionList==null) {
@@ -62,10 +59,10 @@ public class OptionManager extends ArrayList<Option>{
     }
     int i=0;
     for (Option option : this ) {
-      i++;
       if (option.contains(arg)) {
         return i;
       }
+      i++;
     }
     return -1;
   }
@@ -104,6 +101,7 @@ public class OptionManager extends ArrayList<Option>{
         returnObject[i] = Boolean.valueOf(arg);
         break;
       }
+      i++;
     }
     return returnObject;
   }
