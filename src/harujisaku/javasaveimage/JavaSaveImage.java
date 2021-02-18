@@ -25,7 +25,7 @@ public class JavaSaveImage{
 	Pattern p = Pattern.compile("<a.*?href\\s*=\\s*[\"|'](https?://.*?)[\"|'].*? rel=\"search_result\".*?>");
 	Matcher m;
 	String html="",option="",texts="java",path="",extension="jpg";
-	int length=1,requestCount=0,errorCount=0,rotateDegree=0;
+	int length=5,requestCount=0,errorCount=0,rotateDegree=0;
 	double rotateRadian=Math.toRadians(rotateDegree);
 	boolean isNeedSave=true,isNeedRotate=true;
 
@@ -41,31 +41,30 @@ public class JavaSaveImage{
 		}
 
 		OptionManager opm = new OptionManager();
-		Option helpOption = new Option("-h");
-		helpOption.add("-help");
-
-		Option lengthOption = new Option("-l");
-		lengthOption.add("-length");
-
-		Option optionOption = new Option("-o");
-		optionOption.add("-op","-option");
-
-		Option textOption = new Option("-t");
-		textOption.add("-text");
-
-		Option pathOption = new Option("-p");
-		pathOption.add("-path");
-
-		Option saveOption = new Option("-s");
-		saveOption.add("-no-save");
-
-		Option rotateOption = new Option("-r");
-		rotateOption.add("-no-rotate","-rotate");
-
-		Option extensionOption = new Option("-e");
-		extensionOption.add("-extension");
-
+		Option helpOption = new Option("-h","-help");
+		Option lengthOption = new Option("-l","-length");
+		Option optionOption = new Option("-o","-op","-option");
+		Option textOption = new Option("-t","-text");
+		Option pathOption = new Option("-p","-path");
+		Option saveOption = new Option("-s","-no-save");
+		Option rotateOption = new Option("-r","-no-rotate","-rotate");
+		Option extensionOption = new Option("-e","-extension");
 		opm.add(helpOption,lengthOption,optionOption,textOption,pathOption,saveOption,rotateOption,extensionOption);
+
+		helpOption.setRun(new IRunOption(){
+			@Override
+			public void runOption(Object[] obj){
+				System.out.println(Message.HELP);
+				System.exit(0);
+			}
+		});
+
+		lengthOption.setRun(new IRunOption(){
+			@Override
+			public void runOption(Object[] obj){
+				length=(int)obj[0];
+			}
+		});
 
 		opm.optionProcess(args);
 		SaveImageWithDPI.formatList.add(new SavePNGImageWithDPI());

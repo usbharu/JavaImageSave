@@ -10,7 +10,7 @@ exit
 jar -cvf JavaSaveImage.jar -C bin\ .
 jar uvfm JavaSaveImage.jar manifest.mani
 
-java -classpath lang -jar JavaSaveImage.jar
+java -classpath lang -jar JavaSaveImage.jar -h
 if not %ERRORLEVEL% == 0 (
 pause
 exit
