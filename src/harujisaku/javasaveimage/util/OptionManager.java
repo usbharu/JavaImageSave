@@ -96,19 +96,23 @@ public class OptionManager extends ArrayList<Option>{
     Object[] returnObject = new Object[args.length];
     int i = 0;
     for (String arg :args ) {
-      switch (optionArgs[i]) {
-        case INTEGER:
-        returnObject[i] = Integer.valueOf(arg);
-        break;
-        case STRING:
-        returnObject[i] = arg;
-        break;
-        case DOUBLE:
-        returnObject[i] = Double.valueOf(arg);
-        break;
-        case BOOLEAN:
-        returnObject[i] = Boolean.valueOf(arg);
-        break;
+      try {
+        switch (optionArgs[i]) {
+          case INTEGER:
+            returnObject[i] = Integer.valueOf(arg);
+            break;
+          case STRING:
+            returnObject[i] = arg;
+            break;
+          case DOUBLE:
+            returnObject[i] = Double.valueOf(arg);
+            break;
+          case BOOLEAN:
+            returnObject[i] = Boolean.valueOf(arg);
+            break;
+        }
+      } catch(NumberFormatException e) {
+        throw new IllegalArgumentException(e);
       }
       i++;
     }
