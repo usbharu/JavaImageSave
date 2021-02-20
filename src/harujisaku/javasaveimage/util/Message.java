@@ -17,7 +17,8 @@ public enum Message{
   UNKNOWN_OPTION,
   REQUEST,
   ERROR,
-  TIME_OUT;
+  TIME_OUT,
+  UNSUPPORTED_OPTION;
 
   @Override public String toString(){
     File dicDir = new File("lang").getAbsoluteFile();
