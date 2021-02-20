@@ -7,7 +7,6 @@ import harujisaku.javasaveimage.util.*;
 
 public class OptionManager extends ArrayList<Option>{
 
-  private List<Integer> optionIndexList = new ArrayList<Integer>();
   public OptionManager(List<Option> optionList){
     super(optionList);
   }
