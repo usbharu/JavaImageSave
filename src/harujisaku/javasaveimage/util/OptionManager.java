@@ -34,7 +34,12 @@ public class OptionManager extends ArrayList<Option>{
       for (int j = 0,lenj=argEnd-argStart+1;j<lenj ; j++) {
         argList.add(args[j+argStart]);
       }
+      try {
         useOption.get(i).run(optionFormating(useOption.get(i),argList.toArray(new String[argList.size()])));
+      } catch(IllegalArgumentException e) {
+        
+        e.printStackTrace();
+      }
     }
     int i = argIndexList.size()-1;
     int argOption = argIndexList.get(i);
