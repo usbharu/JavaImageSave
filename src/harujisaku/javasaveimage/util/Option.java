@@ -9,6 +9,9 @@ public class Option extends ArrayList<String>{
 
   private OptionArgs[] optionArgs = new OptionArgs[]{OptionArgs.INTEGER};
 
+  private formatErrorMessage = null;
+  private optionLengthErrorMessage = null;
+
   public Option(List<String> option){
     super(option);
   }
@@ -22,6 +25,22 @@ public class Option extends ArrayList<String>{
 
   public void setRun(IRunOption runa){
     runOption=runa;
+  }
+
+  public void setFormatErrorMessage(String message){
+    formatErrorMessage=message;
+  }
+
+  public String getFormatErrorMessage(){
+    return formatErrorMessage;
+  }
+
+  public void setOptionLengthErrorMessage(String message){
+    optionLengthErrorMessage=message;
+  }
+
+  public String getOptionLengthErrorMessage(){
+    return optionLengthErrorMessage;
   }
 
   public void setMode(OptionArgs... optionMode){
