@@ -27,7 +27,7 @@ public class JavaSaveImage{
 	String html="",option="",texts="java",path="",extension="jpg";
 	int length=5,requestCount=0,errorCount=0,rotateDegree=0,timeOut=5000;
 	double rotateRadian=Math.toRadians(rotateDegree);
-	boolean isNeedSave=true,isNeedRotate=true;
+	boolean isNeedSave=true,isNeedRotate=true,isDebugMode=false;
 
 	public static void main(String[] args) {
 		new JavaSaveImage().myMain(args);
@@ -40,6 +40,7 @@ public class JavaSaveImage{
 			return;
 		}
 
+		Option debugOption = new Option("-dev");
 		Option helpOption = new Option("-h","-help");
 		Option lengthOption = new Option("-l","-length");
 		Option optionOption = new Option("-o","-op","-option");
@@ -49,7 +50,20 @@ public class JavaSaveImage{
 		Option rotateOption = new Option("-r","-no-rotate","-rotate");
 		Option extensionOption = new Option("-e","-extension");
 		OptionManager opm = new OptionManager();
-		opm.add(helpOption,lengthOption,optionOption,textOption,pathOption,saveOption,rotateOption,extensionOption);
+		opm.add(debugOption,helpOption,lengthOption,optionOption,textOption,pathOption,saveOption,rotateOption,extensionOption);
+
+		debugOption.setRun(new IRunOption(){
+			@Override
+			public void runOption(Object[] obj){
+				if (obj.length==0) {
+					isDebugMode=true;
+					opm.setDebugMode(true);
+					return;
+				}
+				isDebugMode=(boolean)obj[0];
+				opm.setDebugMode((boolean)obj[0]);
+			}
+		});
 
 		helpOption.setRun(new IRunOption(){
 			@Override
@@ -127,7 +141,7 @@ public class JavaSaveImage{
 		SaveImageWithDPI.formatList.add(new SaveJPEGImageWithDPI());
 		SaveImageWithDPI.formatList.add(new SaveJPGImageWithDPI());
 
-		System.out.println(texts);
+		System.out.println("search tesxt : "+texts);
 		while(length>a){
 			html=getHTML(20,texts,a*20);
 			save();
@@ -145,7 +159,9 @@ public class JavaSaveImage{
 		while(m.find()){
 			int i=0;
 			requestCount++;
-			System.out.println(getURL());
+			if (isDebugMode) {
+				System.out.println(getURL());
+			}
 			if (isNeedSave) {
 				BufferedImage bi;
 				if (isNeedRotate) {
@@ -165,7 +181,11 @@ public class JavaSaveImage{
 					FileOutputStream fo = new FileOutputStream(file);
 					SaveImageWithDPI.saveImageWithDPI(fo,bi,96,extension);
 				} catch(Exception e) {
-					e.printStackTrace();
+					if (isDebugMode) {
+						e.printStackTrace();
+					}else{
+						System.out.println(Message.ERROR);
+					}
 				}
 			}
 		}
@@ -179,7 +199,9 @@ public class JavaSaveImage{
 			} catch(UnsupportedEncodingException e) {
 				sendUrl = url+"?count="+String.valueOf(count)+"&query="+text+option+"&start="+String.valueOf(start);
 			}
-			System.out.println(sendUrl);
+			if (isDebugMode) {
+				System.out.println(sendUrl);
+			}
 			HttpURLConnection connection = (HttpURLConnection) new URL(sendUrl).openConnection();
 			connection.setRequestProperty("User-Agent" , "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:84.0) Gecko/20100101 Firefox/84.0");
 			int responseCode = connection.getResponseCode();
@@ -200,8 +222,12 @@ public class JavaSaveImage{
 			in.close();
 			return response.toString();
 		} catch(Exception e) {
-			e.printStackTrace();
-			return null;
+			if (isDebugMode) {
+				e.printStackTrace();
+			}else{
+				System.out.println(Message.ERROR);
+			}
+		return null;
 		}
 	}
 
@@ -230,8 +256,21 @@ public class JavaSaveImage{
 			}
 			return bi;
 		} catch(Exception e) {
-			e.printStackTrace();
+			if (isDebugMode) {
+				e.printStackTrace();
+			}else{
+				System.out.println(Message.ERROR);
+			}
 			return null;
 		}
 	}
+
+	public void setDebugMode(boolean mode){
+		isDebugMode=mode;
+	}
+
+	public boolean getDebugMode(){
+		return isDebugMode;
+	}
+
 }

@@ -7,12 +7,22 @@ import harujisaku.javasaveimage.util.*;
 
 public class OptionManager extends ArrayList<Option>{
 
+  private boolean isDebugMode = false;
+
   public OptionManager(List<Option> optionList){
     super(optionList);
   }
 
   public OptionManager(){
     super();
+  }
+
+  public void setDebugMode(boolean mode){
+    isDebugMode=mode;
+  }
+
+  public boolean getDebugMode(){
+    return isDebugMode;
   }
 
   public void optionProcess(String[] args){
@@ -37,7 +47,9 @@ public class OptionManager extends ArrayList<Option>{
         useOption.get(i).run(optionFormating(useOption.get(i),argList.toArray(new String[argList.size()])));
       } catch(IllegalArgumentException e) {
         System.out.println(Message.UNSUPPORTED_OPTION);
-        e.printStackTrace();
+        if (isDebugMode) {
+          e.printStackTrace();
+        }
       }
     }
     int i = argIndexList.size()-1;
@@ -52,6 +64,9 @@ public class OptionManager extends ArrayList<Option>{
       useOption.get(i).run(optionFormating(useOption.get(i),argList.toArray(new String[argList.size()])));
     } catch(Exception e) {
       System.out.println(Message.UNSUPPORTED_OPTION);
+      if (isDebugMode) {
+        e.printStackTrace();
+      }
     }
   }
 
