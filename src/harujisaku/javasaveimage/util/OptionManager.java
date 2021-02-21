@@ -8,6 +8,11 @@ import harujisaku.javasaveimage.util.*;
 public class OptionManager extends ArrayList<Option>{
 
   private boolean isDebugMode = false;
+  private int messageMode = 0;
+
+  public static final int AUTO_MAKE_MESSAGE = 0;
+
+  public static final int MANUAL_SET_MESSAGE = 1;
 
   public OptionManager(List<Option> optionList){
     super(optionList);
@@ -23,6 +28,16 @@ public class OptionManager extends ArrayList<Option>{
 
   public boolean getDebugMode(){
     return isDebugMode;
+  }
+
+  public void setMessageMode(int mode){
+    if (mode==0||mode==1) {
+      messageMode=mode;
+    }
+  }
+
+  public int getMessageMode(){
+    return messageMode;
   }
 
   public void optionProcess(String[] args){
@@ -46,7 +61,11 @@ public class OptionManager extends ArrayList<Option>{
       try {
         useOption.get(i).run(optionFormating(useOption.get(i),argList.toArray(new String[argList.size()])));
       } catch(IllegalArgumentException e) {
-        System.out.println(Message.UNSUPPORTED_OPTION);
+        if (messageMode==AUTO_MAKE_MESSAGE) {
+          System.out.println(Message.UNSUPPORTED_OPTION);
+        }else if (messageMode==MANUAL_SET_MESSAGE) {
+          System.out.println(useOption.get(i).getFormatErrorMessage());
+        }
         if (isDebugMode) {
           e.printStackTrace();
         }
@@ -63,7 +82,11 @@ public class OptionManager extends ArrayList<Option>{
     try {
       useOption.get(i).run(optionFormating(useOption.get(i),argList.toArray(new String[argList.size()])));
     } catch(Exception e) {
-      System.out.println(Message.UNSUPPORTED_OPTION);
+      if (messageMode==MANUAL_SET_MESSAGE) {
+        System.out.println(useOption.get(i).getFormatErrorMessage());
+      }else if (messageMode==AUTO_MAKE_MESSAGE) {
+        System.out.println(Message.UNSUPPORTED_OPTION);
+      }
       if (isDebugMode) {
         e.printStackTrace();
       }
