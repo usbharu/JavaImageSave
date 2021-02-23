@@ -9,8 +9,8 @@ public class Option extends ArrayList<String>{
 
   private OptionArgs[] optionArgs = new OptionArgs[]{OptionArgs.INTEGER};
 
-  private String formatErrorMessage = null;
-  private String optionLengthErrorMessage = null;
+  private String formatErrorMessage = "";
+  private String optionLengthErrorMessage = "";
 
   public Option(List<String> option){
     super(option);

@@ -136,6 +136,7 @@ public class JavaSaveImage{
 			}
 		});
 
+		opm.setMessageMode(OptionManager.MANUAL_SET_MESSAGE);
 		opm.optionProcess(args);
 		SaveImageWithDPI.formatList.add(new SavePNGImageWithDPI());
 		SaveImageWithDPI.formatList.add(new SaveJPEGImageWithDPI());
