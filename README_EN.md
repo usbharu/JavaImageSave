@@ -2,7 +2,7 @@
 [日本語](README.md)
 
 This program can automatically save the results of so-net image search, which gives almost the same results as google image search in java.
-
+Use at your own risk
 ## how to use
 
 ```bash
