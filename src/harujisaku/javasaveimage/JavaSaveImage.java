@@ -24,7 +24,7 @@ public class JavaSaveImage{
 	String url = "https://www.so-net.ne.jp/search/image/";
 	Pattern p = Pattern.compile("<a.*?href\\s*=\\s*[\"|'](https?://.*?)[\"|'].*? rel=\"search_result\".*?>");
 	Matcher m;
-	String html="",option="",texts="java",path="",extension="jpg";
+	String html="",option="",texts="java",path="",extension="jpg",userAgent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:84.0) Gecko/20100101 Firefox/84.0";
 	int length=5,requestCount=0,errorCount=0,rotateDegree=0,timeOut=5000;
 	double rotateRadian=Math.toRadians(rotateDegree);
 	boolean isNeedSave=true,isNeedRotate=true,isDebugMode=false;
@@ -204,7 +204,7 @@ public class JavaSaveImage{
 				System.out.println(sendUrl);
 			}
 			HttpURLConnection connection = (HttpURLConnection) new URL(sendUrl).openConnection();
-			connection.setRequestProperty("User-Agent" , "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:84.0) Gecko/20100101 Firefox/84.0");
+			connection.setRequestProperty("User-Agent" ,userAgent );
 			int responseCode = connection.getResponseCode();
 			InputStream inputStream;
 			if (200 <= responseCode && responseCode <= 299) {
