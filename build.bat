@@ -10,12 +10,12 @@ exit
 jar -cvf JavaSaveImage.jar -C bin\ .
 jar uvfm JavaSaveImage.jar manifest.mani
 
-java -classpath lang -jar JavaSaveImage.jar -h
+java -jar JavaSaveImage.jar -h
 if not %ERRORLEVEL% == 0 (
 pause
 exit
 )
-java -classpath .;lang -jar JavaSaveImage.jar -t "java" -l 1 -r 90 -dev
+java -jar JavaSaveImage.jar -t "java" -l 1 -r 90 -dev
 pause
 del *.jpg
 del *.png
