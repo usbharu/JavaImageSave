@@ -20,3 +20,4 @@ pause
 del *.jpg
 del *.png
 del *.jpeg
+exit

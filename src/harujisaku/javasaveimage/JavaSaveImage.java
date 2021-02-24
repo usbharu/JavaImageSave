@@ -142,7 +142,7 @@ public class JavaSaveImage{
 		SaveImageWithDPI.formatList.add(new SaveJPEGImageWithDPI());
 		SaveImageWithDPI.formatList.add(new SaveJPGImageWithDPI());
 
-		System.out.println("search tesxt : "+texts);
+		System.out.println("search text : "+texts);
 		while(length>a){
 			html=getHTML(20,texts,a*20);
 			save();
