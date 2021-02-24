@@ -50,6 +50,7 @@ public class JavaSaveImage{
 		Option rotateOption = new Option("-r","-no-rotate","-rotate");
 		Option extensionOption = new Option("-e","-extension");
 		OptionManager opm = new OptionManager();
+		
 		opm.add(debugOption,helpOption,lengthOption,optionOption,textOption,pathOption,saveOption,rotateOption,extensionOption);
 
 		debugOption.setRun(new IRunOption(){
