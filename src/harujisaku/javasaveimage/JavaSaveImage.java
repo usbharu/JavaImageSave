@@ -21,6 +21,7 @@ import harujisaku.javasaveimage.image.*;
 import harujisaku.javasaveimage.util.*;
 
 public class JavaSaveImage{
+	
 	String url = "https://www.so-net.ne.jp/search/image/";
 	Pattern p = Pattern.compile("<a.*?href\\s*=\\s*[\"|'](https?://.*?)[\"|'].*? rel=\"search_result\".*?>");
 	Matcher m;
@@ -50,7 +51,7 @@ public class JavaSaveImage{
 		Option rotateOption = new Option("-r","-no-rotate","-rotate");
 		Option extensionOption = new Option("-e","-extension");
 		OptionManager opm = new OptionManager();
-		
+
 		opm.add(debugOption,helpOption,lengthOption,optionOption,textOption,pathOption,saveOption,rotateOption,extensionOption);
 
 		debugOption.setRun(new IRunOption(){
