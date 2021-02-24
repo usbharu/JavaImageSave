@@ -273,5 +273,4 @@ public class JavaSaveImage{
 	public boolean getDebugMode(){
 		return isDebugMode;
 	}
-
 }
