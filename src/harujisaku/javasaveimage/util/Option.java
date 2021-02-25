@@ -10,7 +10,9 @@ public class Option extends ArrayList<String>{
   private OptionArgs[] optionArgs = new OptionArgs[]{OptionArgs.INTEGER};
 
   private String formatErrorMessage = "";
-  private String optionLengthErrorMessage = "";
+  private String argumentLengthErrorMessage = "";
+  private String description = "write description here";
+  private String[] argumentName = {""};
 
   public Option(List<String> option){
     super(option);
@@ -35,12 +37,28 @@ public class Option extends ArrayList<String>{
     return formatErrorMessage;
   }
 
-  public void setOptionLengthErrorMessage(String message){
-    optionLengthErrorMessage=message;
+  public void setArgumentLengthErrorMessage(String message){
+    argumentLengthErrorMessage=message;
   }
 
-  public String getOptionLengthErrorMessage(){
-    return optionLengthErrorMessage;
+  public String getArgumentLengthErrorMessage(){
+    return argumentLengthErrorMessage;
+  }
+
+  public void setDescription(String str){
+    description=str;
+  }
+
+  public String getDescription(){
+    return description;
+  }
+
+  public void setArgumentName(String... argumentName){
+    this.argumentName=argumentName;
+  }
+
+  public String[] getArgumentName(){
+    return argumentName;
   }
 
   public void setMode(OptionArgs... optionMode){

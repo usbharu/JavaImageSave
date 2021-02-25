@@ -21,7 +21,7 @@ import harujisaku.javasaveimage.image.*;
 import harujisaku.javasaveimage.util.*;
 
 public class JavaSaveImage{
-	
+
 	String url = "https://www.so-net.ne.jp/search/image/";
 	Pattern p = Pattern.compile("<a.*?href\\s*=\\s*[\"|'](https?://.*?)[\"|'].*? rel=\"search_result\".*?>");
 	Matcher m;
@@ -41,19 +41,20 @@ public class JavaSaveImage{
 			return;
 		}
 
-		Option debugOption = new Option("-dev");
-		Option helpOption = new Option("-h","-help");
-		Option lengthOption = new Option("-l","-length");
-		Option optionOption = new Option("-o","-op","-option");
-		Option textOption = new Option("-t","-text");
-		Option pathOption = new Option("-p","-path");
-		Option saveOption = new Option("-s","-no-save");
-		Option rotateOption = new Option("-r","-no-rotate","-rotate");
-		Option extensionOption = new Option("-e","-extension");
+		Option debugOption = new Option("--dev");
+		Option helpOption = new Option("-h","--help");
+		Option lengthOption = new Option("-l","--length");
+		Option optionOption = new Option("-o","--op","--option");
+		Option textOption = new Option("-t","--text");
+		Option pathOption = new Option("-p","--path");
+		Option saveOption = new Option("-s","--no-save");
+		Option rotateOption = new Option("-r","--no-rotate","--rotate");
+		Option extensionOption = new Option("-e","--extension");
 		OptionManager opm = new OptionManager();
 
 		opm.add(debugOption,helpOption,lengthOption,optionOption,textOption,pathOption,saveOption,rotateOption,extensionOption);
 
+		debugOption.setDescription("debug mode");
 		debugOption.setRun(new IRunOption(){
 			@Override
 			public void runOption(Object[] obj){
@@ -67,6 +68,7 @@ public class JavaSaveImage{
 			}
 		});
 
+		helpOption.setDescription("help message");
 		helpOption.setRun(new IRunOption(){
 			@Override
 			public void runOption(Object[] obj){
@@ -75,6 +77,8 @@ public class JavaSaveImage{
 			}
 		});
 
+		lengthOption.setArgumentName("length");
+		lengthOption.setDescription("search count");
 		lengthOption.setMode(OptionArgs.INTEGER);
 		lengthOption.setRun(new IRunOption(){
 			@Override
@@ -83,6 +87,8 @@ public class JavaSaveImage{
 			}
 		});
 
+		optionOption.setArgumentName("option");
+		optionOption.setDescription("search option");
 		optionOption.setMode(OptionArgs.STRING);
 		optionOption.setRun(new IRunOption(){
 			@Override
@@ -91,6 +97,8 @@ public class JavaSaveImage{
 			}
 		});
 
+		textOption.setArgumentName("words");
+		textOption.setDescription("search term");
 		textOption.setMode(OptionArgs.STRING);
 		textOption.setRun(new IRunOption(){
 			@Override
@@ -99,6 +107,8 @@ public class JavaSaveImage{
 			}
 		});
 
+		pathOption.setArgumentName("path");
+		pathOption.setDescription("save path");
 		pathOption.setMode(OptionArgs.STRING);
 		pathOption.setRun(new IRunOption(){
 			@Override
@@ -107,6 +117,7 @@ public class JavaSaveImage{
 			}
 		});
 
+		saveOption.setDescription("not save");
 		saveOption.setMode(OptionArgs.BOOLEAN);
 		saveOption.setRun(new IRunOption(){
 			@Override
@@ -119,6 +130,8 @@ public class JavaSaveImage{
 			}
 		});
 
+		rotateOption.setDescription("rotate degree");
+		rotateOption.setArgumentName("degree (default auto horizontal)");
 		rotateOption.setMode(OptionArgs.INTEGER);
 		rotateOption.setRun(new IRunOption(){
 			@Override
@@ -130,6 +143,8 @@ public class JavaSaveImage{
 			}
 		});
 
+		extensionOption.setArgumentName("extension name (default "+extension+")");
+		extensionOption.setDescription("extension");
 		extensionOption.setMode(OptionArgs.STRING);
 		extensionOption.setRun(new IRunOption(){
 			@Override
@@ -140,6 +155,7 @@ public class JavaSaveImage{
 
 		opm.setMessageMode(OptionManager.MANUAL_SET_MESSAGE);
 		opm.optionProcess(args);
+		System.out.println(opm.getHelpMessage());
 		SaveImageWithDPI.formatList.add(new SavePNGImageWithDPI());
 		SaveImageWithDPI.formatList.add(new SaveJPEGImageWithDPI());
 		SaveImageWithDPI.formatList.add(new SaveJPGImageWithDPI());

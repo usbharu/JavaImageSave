@@ -40,6 +40,26 @@ public class OptionManager extends ArrayList<Option>{
     return messageMode;
   }
 
+  public String getHelpMessage(){
+    StringBuilder sb = new StringBuilder();
+    for (Option option : this ) {
+      sb.append("[ ");
+      for (String str :option ) {
+        sb.append(str);
+        sb.append("|");
+      }
+      sb.deleteCharAt(sb.length()-1);
+      sb.append(" ");
+      for (String str : option.getArgumentName()) {
+        if (!str.isEmpty()) {
+          sb.append(str+" ");
+        }
+      }
+      sb.append("] ");
+    }
+    return sb.toString();
+  }
+
   public void optionProcess(String[] args){
     List<Integer> argIndexList = new ArrayList<Integer>();
     List<Option> useOption = new ArrayList<Option>();
