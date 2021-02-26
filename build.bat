@@ -15,7 +15,7 @@ if not %ERRORLEVEL% == 0 (
 pause
 exit
 )
-java -jar JavaSaveImage.jar -t "java" -l 1 -r 90 -dev
+java -jar JavaSaveImage.jar -t "java" -l 1 -r 90 --dev
 pause
 del *.jpg
 del *.png

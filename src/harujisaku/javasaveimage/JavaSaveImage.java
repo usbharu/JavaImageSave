@@ -17,7 +17,7 @@ import javax.imageio.metadata.*;
 
 import org.w3c.dom.*;
 
-import harujisaku.javasaveimage.image.*;
+import harujisaku.javasaveimage.imageio.*;
 import harujisaku.javasaveimage.util.*;
 
 public class JavaSaveImage{
@@ -109,6 +109,7 @@ public class JavaSaveImage{
 		pathOption.setMode(OptionArgs.STRING);
 		pathOption.setRun(new IRunOption(){
 			@Override	public void runOption(Object[] obj){
+				System.out.println("aaaaaaaaaaaaaaaaaaaaa");
 				path=(String)obj[0];
 			}
 		});
@@ -146,7 +147,6 @@ public class JavaSaveImage{
 			}
 		});
 
-		opm.setMessageMode(OptionManager.MANUAL_SET_MESSAGE);
 		opm.optionProcess(args);
 		System.out.println(opm.getHelpMessage());
 		SaveImageWithDPI.formatList.add(new SavePNGImageWithDPI());

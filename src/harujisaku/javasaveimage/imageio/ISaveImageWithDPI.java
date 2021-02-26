@@ -1,4 +1,4 @@
-package harujisaku.javasaveimage.image;
+package harujisaku.javasaveimage.imageio;
 
 import java.io.IOException;
 import java.io.OutputStream;

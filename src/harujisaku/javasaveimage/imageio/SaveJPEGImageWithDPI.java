@@ -1,4 +1,4 @@
-package harujisaku.javasaveimage.image;
+package harujisaku.javasaveimage.imageio;
 
 import java.awt.image.BufferedImage;
 
