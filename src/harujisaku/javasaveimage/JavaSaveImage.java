@@ -57,8 +57,7 @@ public class JavaSaveImage{
 		debugOption.setDescription("debug mode");
 		debugOption.setNeedsArgument(false);
 		debugOption.setRun(new IRunOption(){
-			@Override
-			public void runOption(Object[] obj){
+			@Override public void runOption(Object[] obj){
 				if (obj.length==0) {
 					isDebugMode=true;
 					opm.setDebugMode(true);
@@ -72,8 +71,7 @@ public class JavaSaveImage{
 		helpOption.setNeedsArgument(false);
 		helpOption.setDescription("help message");
 		helpOption.setRun(new IRunOption(){
-			@Override
-			public void runOption(Object[] obj){
+			@Override	public void runOption(Object[] obj){
 				System.out.println(Message.HELP);
 				System.exit(0);
 			}
@@ -83,8 +81,7 @@ public class JavaSaveImage{
 		lengthOption.setDescription("search count");
 		lengthOption.setMode(OptionArgs.INTEGER);
 		lengthOption.setRun(new IRunOption(){
-			@Override
-			public void runOption(Object[] obj){
+			@Override	public void runOption(Object[] obj){
 				length=(int)obj[0];
 			}
 		});
@@ -93,8 +90,7 @@ public class JavaSaveImage{
 		optionOption.setDescription("search option");
 		optionOption.setMode(OptionArgs.STRING);
 		optionOption.setRun(new IRunOption(){
-			@Override
-			public void runOption(Object[] obj){
+			@Override	public void runOption(Object[] obj){
 				option=(String)obj[0];
 			}
 		});
@@ -103,8 +99,7 @@ public class JavaSaveImage{
 		textOption.setDescription("search term");
 		textOption.setMode(OptionArgs.STRING);
 		textOption.setRun(new IRunOption(){
-			@Override
-			public void runOption(Object[] obj){
+			@Override	public void runOption(Object[] obj){
 				texts=(String)obj[0];
 			}
 		});
@@ -113,8 +108,7 @@ public class JavaSaveImage{
 		pathOption.setDescription("save path");
 		pathOption.setMode(OptionArgs.STRING);
 		pathOption.setRun(new IRunOption(){
-			@Override
-			public void runOption(Object[] obj){
+			@Override	public void runOption(Object[] obj){
 				path=(String)obj[0];
 			}
 		});
@@ -122,8 +116,7 @@ public class JavaSaveImage{
 		saveOption.setDescription("not save");
 		saveOption.setMode(OptionArgs.BOOLEAN);
 		saveOption.setRun(new IRunOption(){
-			@Override
-			public void runOption(Object[] obj){
+			@Override	public void runOption(Object[] obj){
 				if (obj.length==0) {
 					isNeedSave=false;
 					return;
@@ -136,8 +129,7 @@ public class JavaSaveImage{
 		rotateOption.setArgumentName("degree (default auto horizontal)");
 		rotateOption.setMode(OptionArgs.INTEGER);
 		rotateOption.setRun(new IRunOption(){
-			@Override
-			public void runOption(Object[] obj){
+			@Override	public void runOption(Object[] obj){
 				isNeedRotate=false;
 				if (obj.length!=0) {
 					rotateDegree=(int)obj[0];
@@ -149,8 +141,7 @@ public class JavaSaveImage{
 		extensionOption.setDescription("extension");
 		extensionOption.setMode(OptionArgs.STRING);
 		extensionOption.setRun(new IRunOption(){
-			@Override
-			public void runOption(Object[] obj){
+			@Override	public void runOption(Object[] obj){
 				extension=(String)obj[0];
 			}
 		});
