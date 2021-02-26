@@ -103,10 +103,20 @@ public class OptionManager extends ArrayList<Option>{
     }
     try {
       useOption.get(i).run(optionFormating(useOption.get(i),argList.toArray(new String[argList.size()])));
-    } catch(Exception e) {
+    } catch(OptionIllegalArgumentException e) {
       if (messageMode==MANUAL_SET_MESSAGE) {
         System.out.println(useOption.get(i).getFormatErrorMessage());
       }else if (messageMode==AUTO_MAKE_MESSAGE) {
+        System.out.println(Message.UNSUPPORTED_OPTION);
+      }
+      if (isDebugMode) {
+        e.printStackTrace();
+      }
+      System.exit(1);
+    }catch (OptionIndexOutOfBoundsException e) {
+      if (messageMode==MANUAL_SET_MESSAGE) {
+        System.out.println(useOption.get(i).getFormatErrorMessage());
+      }else if(messageMode==AUTO_MAKE_MESSAGE){
         System.out.println(Message.UNSUPPORTED_OPTION);
       }
       if (isDebugMode) {
@@ -161,23 +171,26 @@ public class OptionManager extends ArrayList<Option>{
   }
 
   private Object[] optionFormating(Option option,String[] args){
+    if (!option.getNeedsArgument()) {
+      return new Object[0];
+    }
     OptionArgs[] optionArgs = option.getMode();
-    Object[] returnObject = new Object[args.length];
+    Object[] returnObject = new Object[option.size()];
     int i = 0;
-    for (String arg :args ) {
+    for (OptionArgs optionArg :optionArgs ) {
       try {
-        switch (optionArgs[i]) {
+        switch (optionArg) {
           case INTEGER:
-            returnObject[i] = Integer.valueOf(arg);
+            returnObject[i] = Integer.valueOf(args[i]);
             break;
           case STRING:
-            returnObject[i] = arg;
+            returnObject[i] = args[i];
             break;
           case DOUBLE:
-            returnObject[i] = Double.valueOf(arg);
+            returnObject[i] = Double.valueOf(args[i]);
             break;
           case BOOLEAN:
-            returnObject[i] = Boolean.valueOf(arg);
+            returnObject[i] = Boolean.valueOf(args[i]);
             break;
         }
       } catch(NumberFormatException e) {

@@ -110,9 +110,13 @@ public class JavaSaveImage{
 		pathOption.setRun(new IRunOption(){
 			@Override	public void runOption(Object[] obj){
 				path=(String)obj[0];
-				File file = new File(path);
-				if (file.getParent()!=null) {
-					file.getParentFile().mkdirs();
+				try {
+					File file = new File(path);
+					if (file.getParent()!=null) {
+						file.getParentFile().mkdirs();
+					}
+				} catch(SecurityException e) {
+					System.out.println(Message.SECURITY_ERROR);
 				}
 			}
 		});
