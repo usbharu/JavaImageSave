@@ -48,8 +48,7 @@ public class OptionManager extends ArrayList<Option>{
         sb.append(str);
         sb.append("|");
       }
-      sb.deleteCharAt(sb.length()-1);
-      sb.append(" ");
+      sb.replace(sb.length()-1,sb.length()," ");
       for (int i = 0,len=option.getMode().length;i<len ;i++ ) {
         if (!option.getArgumentName()[i].isEmpty()) {
           sb.append(option.getArgumentName()[i]+" ");
