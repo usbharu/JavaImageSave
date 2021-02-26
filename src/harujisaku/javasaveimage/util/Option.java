@@ -13,6 +13,7 @@ public class Option extends ArrayList<String>{
   private String argumentLengthErrorMessage = "";
   private String description = "write description here";
   private String[] argumentName = {""};
+  private boolean needsArgument = true;
 
   public Option(List<String> option){
     super(option);
@@ -63,6 +64,14 @@ public class Option extends ArrayList<String>{
 
   public void setMode(OptionArgs... optionMode){
     optionArgs=optionMode;
+  }
+
+  public void setNeedsArgument(boolean needsArgument){
+    this.needsArgument=needsArgument;
+  }
+
+  public boolean getNeedsArgument(){
+    return needsArgument;
   }
 
   OptionArgs[] getMode(){

@@ -55,6 +55,7 @@ public class JavaSaveImage{
 		opm.add(debugOption,helpOption,lengthOption,optionOption,textOption,pathOption,saveOption,rotateOption,extensionOption);
 
 		debugOption.setDescription("debug mode");
+		debugOption.setNeedsArgument(false);
 		debugOption.setRun(new IRunOption(){
 			@Override
 			public void runOption(Object[] obj){
@@ -68,6 +69,7 @@ public class JavaSaveImage{
 			}
 		});
 
+		helpOption.setNeedsArgument(false);
 		helpOption.setDescription("help message");
 		helpOption.setRun(new IRunOption(){
 			@Override

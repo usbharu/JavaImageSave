@@ -50,9 +50,11 @@ public class OptionManager extends ArrayList<Option>{
       }
       sb.deleteCharAt(sb.length()-1);
       sb.append(" ");
-      for (String str : option.getArgumentName()) {
-        if (!str.isEmpty()) {
-          sb.append(str+" ");
+      for (int i = 0,len=option.getMode().length;i<len ;i++ ) {
+        if (!option.getArgumentName()[i].isEmpty()) {
+          sb.append(option.getArgumentName()[i]+" ");
+        }else if(option.getNeedsArgument()){
+          sb.append(option.getMode()[i]);
         }
       }
       sb.append("] ");
