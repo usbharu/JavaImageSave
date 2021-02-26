@@ -109,7 +109,6 @@ public class JavaSaveImage{
 		pathOption.setMode(OptionArgs.STRING);
 		pathOption.setRun(new IRunOption(){
 			@Override	public void runOption(Object[] obj){
-				System.out.println("aaaaaaaaaaaaaaaaaaaaa");
 				path=(String)obj[0];
 			}
 		});

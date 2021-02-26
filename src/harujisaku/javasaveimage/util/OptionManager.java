@@ -90,6 +90,7 @@ public class OptionManager extends ArrayList<Option>{
         if (isDebugMode) {
           e.printStackTrace();
         }
+        System.exit(1);
       }
     }
     int i = argIndexList.size()-1;
@@ -111,6 +112,7 @@ public class OptionManager extends ArrayList<Option>{
       if (isDebugMode) {
         e.printStackTrace();
       }
+      System.exit(1);
     }
   }
 
@@ -179,7 +181,9 @@ public class OptionManager extends ArrayList<Option>{
             break;
         }
       } catch(NumberFormatException e) {
-        throw new IllegalArgumentException(e);
+        throw new OptionIllegalArgumentException(e);
+      } catch (IndexOutOfBoundsException e) {
+        throw new OptionIndexOutOfBoundsException(e.getMessage());
       }
       i++;
     }
