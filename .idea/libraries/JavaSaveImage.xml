@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="JavaSaveImage">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/JavaSaveImage.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

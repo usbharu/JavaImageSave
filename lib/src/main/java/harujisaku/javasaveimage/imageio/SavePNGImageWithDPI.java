@@ -13,7 +13,6 @@ import javax.imageio.ImageWriter;
 import javax.imageio.ImageWriteParam;
 import javax.imageio.ImageTypeSpecifier;
 import javax.imageio.metadata.IIOInvalidTreeException;
-import javax.imageio.metadata.IIOMetadata;
 import javax.imageio.metadata.IIOMetadataNode;
 import javax.imageio.stream.ImageOutputStream;
 
