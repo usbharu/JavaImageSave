@@ -1,5 +1,10 @@
 package harujisaku.javasaveimage.util;
 
+import java.io.IOException;
+import java.io.File;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -62,6 +67,20 @@ public class OptionManager extends ArrayList<Option>{
 	}
 
 	public void optionProcess(String[] args){
+		if (args.length!=0) {
+			File file = new File(args[0]);
+			try {
+				file.getCanonicalPath();
+			} catch(IOException e) {
+				if (isDebugMode) {
+					e.printStackTrace();
+				}
+				System.exit(1);
+			}
+			if(file.exists()){
+				optionProcessWithFile(file);
+			}
+		}
 		List<Integer> argIndexList = new ArrayList<Integer>();
 		List<Option> useOption = new ArrayList<Option>();
 		for (int i = 0,len=args.length;i<len ;i++ ) {
@@ -71,6 +90,8 @@ public class OptionManager extends ArrayList<Option>{
 				useOption.add(get(optionIndex));
 			}
 		}
+		System.out.println(argIndexList);
+		System.out.println(useOption);
 		for (int i = 0,len=argIndexList.size()-1;i<len ;i++ ) {
 			int argOption = argIndexList.get(i);
 			int argStart = argOption+1;
@@ -92,6 +113,9 @@ public class OptionManager extends ArrayList<Option>{
 				}
 				System.exit(1);
 			}
+		}
+		if(argIndexList.size()<=0){
+			return;
 		}
 		int i = argIndexList.size()-1;
 		int argOption = argIndexList.get(i);
@@ -126,6 +150,25 @@ public class OptionManager extends ArrayList<Option>{
 		}
 	}
 
+	public void optionProcessWithFile(File file){
+		try {
+			FileReader filereader = new FileReader(file);
+			try(BufferedReader br = new BufferedReader(filereader)){
+				StringBuilder sb = new StringBuilder();
+				String str;
+				while ((str=br.readLine())!=null) {
+					sb.append(str);
+					sb.append(" ");
+				}
+			optionProcess(sb.toString().split("\\s",0));
+			}catch (Exception e) {
+
+			}finally{
+			}
+		} catch(FileNotFoundException exception_name) {
+			exception_name.printStackTrace();
+		}
+	}
 
 	private int indexOf(List<String> searchOptionList){
 		if (searchOptionList==null) {

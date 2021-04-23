@@ -28,7 +28,7 @@ public class JavaSaveImage{
 	String html="",option="",texts="java",path="",extension="jpg",userAgent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:84.0) Gecko/20100101 Firefox/84.0";
 	int length=5,requestCount=0,errorCount=0,rotateDegree=0,timeOut=5000;
 	double rotateRadian=Math.toRadians(rotateDegree);
-	boolean isNeedSave=true,isNeedRotate=true,isDebugMode=false;
+	boolean isNeedSave=true,isNeedRotate=false,isDebugMode=false;
 
 	public static void main(String[] args) {
 		new JavaSaveImage().myMain(args);
@@ -138,7 +138,7 @@ public class JavaSaveImage{
 		rotateOption.setMode(OptionArgs.INTEGER);
 		rotateOption.setRun(new IRunOption(){
 			@Override	public void runOption(Object[] obj){
-				isNeedRotate=false;
+				isNeedRotate=true;
 				if (obj.length!=0) {
 					rotateDegree=(int)obj[0];
 				}
@@ -186,6 +186,7 @@ public class JavaSaveImage{
 				if (isNeedRotate) {
 					bi = AutoRotateImage.rotate(getImage(getURL()),rotateRadian);
 				}else{
+					System.out.println("auto rotate");
 					bi = AutoRotateImage.autoRotate(getImage(getURL()),AutoRotateImage.HORIZONTAL);
 				}
 				if(bi==null){
