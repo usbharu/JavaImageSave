@@ -4,7 +4,7 @@
 
 このプログラムはjavaでgoogle画像検索とほぼ同等の結果を得られるso-net画像検索の結果を自動で保存できます。
 ご利用は自己責任で
-## 使い方　how to use
+## 使い方　ow to use
 
 ```bash
 JavaSaveImage.bat -t search_text -l count_of_search(default 5) -p path_to_save
