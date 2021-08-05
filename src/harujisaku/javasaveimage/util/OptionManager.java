@@ -1,14 +1,8 @@
 package harujisaku.javasaveimage.util;
 
-import java.io.IOException;
-import java.io.File;
-import java.io.FileReader;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.util.List;
+import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
-import harujisaku.javasaveimage.util.*;
+import java.util.List;
 
 public class OptionManager extends ArrayList<Option>{
 

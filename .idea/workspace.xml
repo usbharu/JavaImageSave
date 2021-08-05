@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cfe5ac0c-2019-418c-b5bb-04fb44dcd40b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/build.bat" beforeDir="false" afterPath="$PROJECT_DIR$/build.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/net/HTMLConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lang/MessageList_en_US.properties" beforeDir="false" afterPath="$PROJECT_DIR$/lang/MessageList_en_US.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lang/MessageList_ja_JP.properties" beforeDir="false" afterPath="$PROJECT_DIR$/lang/MessageList_ja_JP.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/JavaSaveImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/JavaSaveImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/util/IRunOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/util/IRunOption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/util/OptionArgs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/util/OptionArgs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/util/OptionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/util/OptionManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +61,13 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -81,7 +94,8 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -185,5 +199,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

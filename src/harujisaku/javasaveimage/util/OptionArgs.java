@@ -8,7 +8,7 @@ public enum OptionArgs{
 
 	private final String text;
 
-	private OptionArgs(final String text){
+	OptionArgs(final String text){
 		this.text = text;
 	}
 
