@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cfe5ac0c-2019-418c-b5bb-04fb44dcd40b" name="Default Changelist" comment="">
+    <list default="true" id="cfe5ac0c-2019-418c-b5bb-04fb44dcd40b" name="Default Changelist" comment="軽微な修正、getHTMLを移動">
+      <change afterPath="$PROJECT_DIR$/.idea/JavaImageSave.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/net/HTMLConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lang/MessageList_en_US.properties" beforeDir="false" afterPath="$PROJECT_DIR$/lang/MessageList_en_US.properties" afterDir="false" />
@@ -102,7 +106,7 @@
       <recent name="C:\Users\haruj\Documents\GitHub\JavaImageSave\lib\src\main\java\harujisaku\javasaveimage" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.JavaImageSave [uploadArchives]">
+  <component name="RunManager" selected="Shell Script.build.bat">
     <configuration name="JavaImageSave [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -166,8 +170,24 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="build.bat" type="ShConfigurationType" temporary="true">
+      <option name="SCRIPT_TEXT" value="" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/build.bat" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="true" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Shell Script.build.bat" />
         <item itemvalue="Gradle.JavaImageSave [uploadArchives]" />
         <item itemvalue="Gradle.JavaImageSave [build]" />
         <item itemvalue="Gradle.JavaImageSave [clean]" />
@@ -199,6 +219,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="軽微な修正、getHTMLを移動" />
+    <option name="LAST_COMMIT_MESSAGE" value="軽微な修正、getHTMLを移動" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
