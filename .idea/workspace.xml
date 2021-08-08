@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cfe5ac0c-2019-418c-b5bb-04fb44dcd40b" name="Default Changelist" comment="軽微な修正、getHTMLを移動">
-      <change afterPath="$PROJECT_DIR$/.idea/JavaImageSave.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/net/HTMLConnection.java" afterDir="false" />
+    <list default="true" id="cfe5ac0c-2019-418c-b5bb-04fb44dcd40b" name="Default Changelist" comment="インポートの最適化">
+      <change afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/net/ImageConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lang/MessageList_en_US.properties" beforeDir="false" afterPath="$PROJECT_DIR$/lang/MessageList_en_US.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lang/MessageList_ja_JP.properties" beforeDir="false" afterPath="$PROJECT_DIR$/lang/MessageList_ja_JP.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/JavaSaveImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/JavaSaveImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/util/IRunOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/util/IRunOption.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/util/OptionArgs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/util/OptionArgs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/util/OptionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/util/OptionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/net/HTMLConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/net/HTMLConnection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +71,6 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectId" id="1pHEf3FJTT5PryQMBi4S9m7Hgzi" />
   <component name="ProjectLevelVcsManager">
@@ -94,6 +85,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../java-google-image-downloader" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
@@ -202,8 +194,30 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1614831717565</updated>
+      <workItem from="1628384290256" duration="959000" />
+      <workItem from="1628406097643" duration="597000" />
+      <workItem from="1628408326610" duration="445000" />
+      <workItem from="1628409763217" duration="4693000" />
     </task>
+    <task id="LOCAL-00001" summary="軽微な修正、getHTMLを移動">
+      <created>1628132081981</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1628132081981</updated>
+    </task>
+    <task id="LOCAL-00002" summary="インポートの最適化">
+      <created>1628138481915</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1628138481915</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -220,7 +234,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="軽微な修正、getHTMLを移動" />
-    <option name="LAST_COMMIT_MESSAGE" value="軽微な修正、getHTMLを移動" />
+    <MESSAGE value="インポートの最適化" />
+    <option name="LAST_COMMIT_MESSAGE" value="インポートの最適化" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

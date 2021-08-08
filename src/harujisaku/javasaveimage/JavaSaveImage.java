@@ -4,16 +4,14 @@ import harujisaku.javasaveimage.imageio.*;
 import harujisaku.javasaveimage.net.HTMLConnection;
 import harujisaku.javasaveimage.util.*;
 
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.SocketTimeoutException;
-import java.net.URL;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static harujisaku.javasaveimage.net.ImageConnection.getImage;
 
 public class JavaSaveImage{
 
@@ -172,7 +170,7 @@ public class JavaSaveImage{
 		System.out.println(errorCount);
 	}
 
-	private void save(){
+	private void save() throws IOException {
 		m=p.matcher(html);
 		File file = new File(path+"1."+extension);
 		while(m.find()){
@@ -184,10 +182,10 @@ public class JavaSaveImage{
 			if (isNeedSave) {
 				BufferedImage bi;
 				if (isNeedRotate) {
-					bi = AutoRotateImage.rotate(getImage(getURL()),rotateRadian);
+					bi = AutoRotateImage.rotate(getImage(getURL(),timeOut),rotateRadian);
 				}else{
 					System.out.println("auto rotate");
-					bi = AutoRotateImage.autoRotate(getImage(getURL()),AutoRotateImage.HORIZONTAL);
+					bi = AutoRotateImage.autoRotate(getImage(getURL(),timeOut),AutoRotateImage.HORIZONTAL);
 				}
 				if(bi==null){
 					errorCount++;
@@ -215,35 +213,7 @@ public class JavaSaveImage{
 		return m.group(1);
 	}
 
-	private BufferedImage getImage(String imageURL){
-		try {
-			HttpURLConnection urlcon =(HttpURLConnection)new URL(imageURL).openConnection();
-			urlcon.setConnectTimeout(timeOut);
-			urlcon.setReadTimeout(timeOut);
-			BufferedImage bi;
-			try {
-				int responseCode=urlcon.getResponseCode();
-				if (200<=responseCode&&responseCode<=299) {
-					bi =ImageIO.read(urlcon.getInputStream());
-				}else{
-					System.out.println(Message.ERROR);
-					System.out.println(responseCode);
-					bi=null;
-				}
-			} catch(SocketTimeoutException e) {
-				System.out.println(Message.TIME_OUT);
-				return null;
-			}
-			return bi;
-		} catch(Exception e) {
-			if (isDebugMode) {
-				e.printStackTrace();
-			}else{
-				System.out.println(Message.ERROR);
-			}
-			return null;
-		}
-	}
+
 
 	public void setDebugMode(boolean mode){
 		isDebugMode=mode;

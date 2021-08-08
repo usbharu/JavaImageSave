@@ -51,6 +51,10 @@ public class HTMLConnection {
 		return response.toString();
 	}
 
+	public String getHTML(int count,String searchWords,String option)throws IOException{
+		return getHTML(20,searchWords,option,count*20);
+	}
+
 	public void setUserAgent(String userAgent) {
 		this.userAgent = userAgent;
 	}
