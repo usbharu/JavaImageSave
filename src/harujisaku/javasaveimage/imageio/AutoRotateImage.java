@@ -28,6 +28,10 @@ public class AutoRotateImage {
 		return outputImg;
 	}
 
+	public static NetImage rotate(NetImage image,double rotateRadian){
+		return new NetImage(rotate(image.getBufferedImage(),rotateRadian),image.getUrl(),image.getName());
+	}
+
 	public static BufferedImage autoRotate(BufferedImage img,int rotateDirection){
 		if (img==null) {
 			return img;
@@ -45,5 +49,9 @@ public class AutoRotateImage {
 				return outputImg;
 			}
 			return img;
+		}
+
+		public static NetImage autoRotate(NetImage image,int rotateDirection){
+			return new NetImage(autoRotate(image.getBufferedImage(),rotateDirection),image.getUrl(),image.getName());
 		}
 }

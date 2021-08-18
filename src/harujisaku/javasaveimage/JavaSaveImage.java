@@ -182,10 +182,10 @@ public class JavaSaveImage{
 			if (isNeedSave) {
 				BufferedImage bi;
 				if (isNeedRotate) {
-					bi = AutoRotateImage.rotate(getImage(getURL(),timeOut),rotateRadian);
+					bi = AutoRotateImage.rotate(getImage(getURL(),timeOut).getBufferedImage(),rotateRadian);
 				}else{
 					System.out.println("auto rotate");
-					bi = AutoRotateImage.autoRotate(getImage(getURL(),timeOut),AutoRotateImage.HORIZONTAL);
+					bi = AutoRotateImage.autoRotate(getImage(getURL(),timeOut).getBufferedImage(),AutoRotateImage.HORIZONTAL);
 				}
 				if(bi==null){
 					errorCount++;

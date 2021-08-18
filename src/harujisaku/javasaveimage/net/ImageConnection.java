@@ -1,5 +1,6 @@
 package harujisaku.javasaveimage.net;
 
+import harujisaku.javasaveimage.imageio.NetImage;
 import harujisaku.javasaveimage.util.Message;
 
 import javax.imageio.ImageIO;
@@ -10,7 +11,7 @@ import java.net.SocketTimeoutException;
 import java.net.URL;
 
 public class ImageConnection {
-	public static BufferedImage getImage(String imageURL,int timeOut) throws IOException {
+	public static NetImage getImage(String imageURL, int timeOut) throws IOException {
 		HttpURLConnection urlcon =(HttpURLConnection)new URL(imageURL).openConnection();
 		urlcon.setConnectTimeout(timeOut);
 		urlcon.setReadTimeout(timeOut);
@@ -28,6 +29,7 @@ public class ImageConnection {
 			System.out.println(Message.TIME_OUT);
 			return null;
 		}
-		return bi;
+		NetImage netImage = new NetImage(bi,imageURL,urlcon.getURL().getFile());
+		return netImage;
 	}
 }

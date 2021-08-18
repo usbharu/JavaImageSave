@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cfe5ac0c-2019-418c-b5bb-04fb44dcd40b" name="Default Changelist" comment="インポートの最適化">
-      <change afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/net/ImageConnection.java" afterDir="false" />
+    <list default="true" id="cfe5ac0c-2019-418c-b5bb-04fb44dcd40b" name="Default Changelist" comment="クラスを分けた">
+      <change afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/imageio/NetImage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/JavaSaveImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/JavaSaveImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/net/HTMLConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/net/HTMLConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/imageio/AutoRotateImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/imageio/AutoRotateImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/net/ImageConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/net/ImageConnection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +198,10 @@
       <workItem from="1628384290256" duration="959000" />
       <workItem from="1628406097643" duration="597000" />
       <workItem from="1628408326610" duration="445000" />
-      <workItem from="1628409763217" duration="4693000" />
+      <workItem from="1628409763217" duration="6397000" />
+      <workItem from="1628491407887" duration="4000" />
+      <workItem from="1629276141913" duration="615000" />
+      <workItem from="1629278396841" duration="1153000" />
     </task>
     <task id="LOCAL-00001" summary="軽微な修正、getHTMLを移動">
       <created>1628132081981</created>
@@ -213,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628138481915</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="クラスを分けた">
+      <created>1628421814803</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1628421814803</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,7 +246,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="軽微な修正、getHTMLを移動" />
     <MESSAGE value="インポートの最適化" />
-    <option name="LAST_COMMIT_MESSAGE" value="インポートの最適化" />
+    <MESSAGE value="クラスを分けた" />
+    <option name="LAST_COMMIT_MESSAGE" value="クラスを分けた" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
