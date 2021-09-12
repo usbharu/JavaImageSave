@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cfe5ac0c-2019-418c-b5bb-04fb44dcd40b" name="Default Changelist" comment="クラスを分けた">
-      <change afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/imageio/NetImage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/JavaSaveImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/JavaSaveImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/imageio/AutoRotateImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/imageio/AutoRotateImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/net/HTMLConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/net/HTMLConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/net/ImageConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/net/ImageConnection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -201,7 +199,11 @@
       <workItem from="1628409763217" duration="6397000" />
       <workItem from="1628491407887" duration="4000" />
       <workItem from="1629276141913" duration="615000" />
-      <workItem from="1629278396841" duration="1153000" />
+      <workItem from="1629278396841" duration="1180000" />
+      <workItem from="1629286221213" duration="69000" />
+      <workItem from="1631432566349" duration="3081000" />
+      <workItem from="1631457927662" duration="1584000" />
+      <workItem from="1631470095756" duration="1203000" />
     </task>
     <task id="LOCAL-00001" summary="軽微な修正、getHTMLを移動">
       <created>1628132081981</created>
@@ -224,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628421814803</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="クラスを分けた">
+      <created>1629279575529</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1629279575529</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
