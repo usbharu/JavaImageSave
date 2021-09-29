@@ -4,9 +4,67 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cfe5ac0c-2019-418c-b5bb-04fb44dcd40b" name="Default Changelist" comment="クラスを分けた">
+    <list default="true" id="cfe5ac0c-2019-418c-b5bb-04fb44dcd40b" name="Default Changelist" comment="不要なメッセージを削除">
+      <change afterPath="$PROJECT_DIR$/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/13.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/14.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/15.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/16.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/17.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/18.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/19.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/20.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/21.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/22.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/23.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/24.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/25.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/26.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/27.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/28.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/29.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/30.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/31.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/32.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/33.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/34.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/35.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/36.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/37.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/38.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/39.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/40.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/41.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/42.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/43.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/44.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/45.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/46.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/47.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/48.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/49.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/50.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/51.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/52.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/53.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/54.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/55.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/56.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/57.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/58.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/59.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/9.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/net/HTMLConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/net/HTMLConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/net/ImageConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/net/ImageConnection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,8 +144,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../java-google-image-downloader" />
-    <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="SDK" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
@@ -203,7 +262,12 @@
       <workItem from="1629286221213" duration="69000" />
       <workItem from="1631432566349" duration="3081000" />
       <workItem from="1631457927662" duration="1584000" />
-      <workItem from="1631470095756" duration="1203000" />
+      <workItem from="1631470095756" duration="1257000" />
+      <workItem from="1631665682967" duration="594000" />
+      <workItem from="1631684110468" duration="8000" />
+      <workItem from="1632896527854" duration="819000" />
+      <workItem from="1632898200871" duration="1306000" />
+      <workItem from="1632937111339" duration="5000" />
     </task>
     <task id="LOCAL-00001" summary="軽微な修正、getHTMLを移動">
       <created>1628132081981</created>
@@ -233,7 +297,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629279575529</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="不要なメッセージを削除">
+      <created>1631488816670</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1631488816670</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,11 +323,15 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="軽微な修正、getHTMLを移動" />
     <MESSAGE value="インポートの最適化" />
     <MESSAGE value="クラスを分けた" />
-    <option name="LAST_COMMIT_MESSAGE" value="クラスを分けた" />
+    <MESSAGE value="不要なメッセージを削除" />
+    <option name="LAST_COMMIT_MESSAGE" value="不要なメッセージを削除" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

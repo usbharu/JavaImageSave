@@ -4,6 +4,7 @@ import harujisaku.javasaveimage.imageio.NetImage;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -20,7 +21,7 @@ public class ImageConnection {
 			}else{
 				return null;
 			}
-		NetImage netImage = new NetImage(bi,imageURL,urlcon.getURL().getFile());
+		NetImage netImage = new NetImage(bi, imageURL, new File(String.valueOf(urlcon.getURL())).getName());
 		return netImage;
 	}
 }
