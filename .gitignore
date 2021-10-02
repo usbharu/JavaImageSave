@@ -25,4 +25,5 @@ hs_err_pid*
 jre
 
 bin
-/doc/
+/doc/*
+doc/type-search-index.js
