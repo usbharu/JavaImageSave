@@ -13,16 +13,21 @@ import java.util.regex.Pattern;
 
 import static harujisaku.javasaveimage.net.ImageConnection.getImage;
 
-public class JavaSaveImage{
+public class JavaSaveImage {
 
 	String url = "https://www.so-net.ne.jp/search/image/";
 	Pattern p = Pattern.compile("<a.*?href\\s*=\\s*[\"|'](https?://.*?)[\"|'].*? rel=\"search_result\".*?>");
 	Matcher m;
-	String html="",option="",texts="java",path="",extension="jpg",userAgent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:84.0) Gecko/20100101 Firefox/84.0";
-	int length=5,requestCount=0,errorCount=0,rotateDegree=0,timeOut=5000;
-	double rotateRadian=Math.toRadians(rotateDegree);
-	boolean isNeedSave=true,isNeedRotate=false,isDebugMode=false;
+	String html = "", option = "", texts = "java", path = "", extension = "jpg", userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:84.0) Gecko/20100101 Firefox/84.0";
+	int length = 5, requestCount = 0, errorCount = 0, rotateDegree = 0, timeOut = 5000;
+	double rotateRadian = Math.toRadians(rotateDegree);
+	boolean isNeedSave = true, isNeedRotate = false, isDebugMode = false;
 
+	/**
+	 * メインメソッド
+	 *
+	 * @param args オプション文字列
+	 */
 	public static void main(String[] args) {
 		try {
 			new JavaSaveImage().myMain(args);
@@ -31,16 +36,23 @@ public class JavaSaveImage{
 		}
 	}
 
+	/**
+	 * エラー回避用のメソッド
+	 * メインメソッド。
+	 *
+	 * @param args オプション文字列
+	 * @throws IOException {@link java.net.HttpURLConnection}で発生するエラー
+	 */
 	private void myMain(String[] args) throws IOException {
 		int a = 0;
-		if (args.length==0) {
+		if (args.length == 0) {
 			System.out.println(Message.HELP);
 			return;
 		}
 
 		Option debugOption = new Option("--dev");
-		Option helpOption = new Option("-h","--help");
-		Option lengthOption = new Option("-l","--length");
+		Option helpOption = new Option("-h", "--help");
+		Option lengthOption = new Option("-l", "--length");
 		Option optionOption = new Option("-o","--op","--option");
 		Option textOption = new Option("-t","--text");
 		Option pathOption = new Option("-p","--path");
@@ -159,22 +171,28 @@ public class JavaSaveImage{
 
 		System.out.println("search text : "+texts);
 		while(length>a){
-			HTMLConnection htmlConnection = new HTMLConnection(userAgent,url);
-			html=htmlConnection.getHTML(20,texts,option,a*20);
+			HTMLConnection htmlConnection = new HTMLConnection(userAgent, url);
+			html = htmlConnection.getHTML(20, texts, option, a * 20);
 			save();
 			a++;
 		}
-		System.out.print(Message.REQUEST+" : ");
+		System.out.print(Message.REQUEST + " : ");
 		System.out.println(requestCount);
-		System.out.print(Message.ERROR+" : ");
+		System.out.print(Message.ERROR + " : ");
 		System.out.println(errorCount);
 	}
 
+	/**
+	 * 保存用のメソッド
+	 * {@link HTMLConnection#getHTML(int, String, String)}で取得したhtmlをもとに画像をダウンロードし保存します。
+	 *
+	 * @throws IOException {@link java.net.HttpURLConnection}で発生するエラー
+	 */
 	private void save() throws IOException {
-		m=p.matcher(html);
-		File file = new File(path+"1."+extension);
-		while(m.find()){
-			int i=0;
+		m = p.matcher(html);
+		File file = new File(path + "1." + extension);
+		while (m.find()) {
+			int i = 0;
 			requestCount++;
 			if (isDebugMode) {
 				System.out.println(getURL());
@@ -197,11 +215,11 @@ public class JavaSaveImage{
 						file = new File(path+i+"."+extension);
 					}
 					FileOutputStream fo = new FileOutputStream(file);
-					SaveImageWithDPI.saveImageWithDPI(fo,bi,96,extension);
-				} catch(Exception e) {
+					SaveImageWithDPI.saveImageWithDPI(fo, bi, 96, extension);
+				} catch (Exception e) {
 					if (isDebugMode) {
 						e.printStackTrace();
-					}else{
+					} else {
 						System.out.println(Message.ERROR);
 					}
 				}
@@ -209,16 +227,30 @@ public class JavaSaveImage{
 		}
 	}
 
-	private String getURL(){
+	/**
+	 * urlを返します。
+	 *
+	 * @return url返します。urlが見つからなかった場合{@code null}を返します。
+	 */
+	private String getURL() {
 		return m.group(1);
 	}
 
 
-
-	public void setDebugMode(boolean mode){
-		isDebugMode=mode;
+	/**
+	 * デバッグモードの設定をします。
+	 *
+	 * @param mode turuならデバッグモードになります。
+	 */
+	public void setDebugMode(boolean mode) {
+		isDebugMode = mode;
 	}
 
+	/**
+	 * デバッグモードの設定を返します。
+	 *
+	 * @return turuならデバッグモードです。
+	 */
 	public boolean getDebugMode(){
 		return isDebugMode;
 	}
