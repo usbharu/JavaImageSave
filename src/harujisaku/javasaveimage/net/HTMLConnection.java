@@ -21,9 +21,17 @@ import java.nio.charset.StandardCharsets;
 public class HTMLConnection {
 
 	/**
+	 * デフォルトコンストラクタ
+	 */
+	public HTMLConnection() {
+
+	}
+
+	/**
 	 * ユーザーエージェントとurlを指定してhtmlを取得します。
+	 *
 	 * @param userAgent 指定するユーザーエージェント
-	 * @param url 指定するurl
+	 * @param url       指定するurl
 	 */
 	public HTMLConnection(String userAgent, String url) {
 		this.userAgent = userAgent;

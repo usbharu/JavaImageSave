@@ -4,117 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cfe5ac0c-2019-418c-b5bb-04fb44dcd40b" name="Default Changelist" comment="NetImage.getName()の扱いを変更。">
-      <change afterPath="$PROJECT_DIR$/doc/allclasses-index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/allclasses.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/allpackages-index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/constant-values.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/deprecated-list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/element-list" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/harujisaku/javasaveimage/JavaSaveImage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/harujisaku/javasaveimage/imageio/AutoRotateImage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/harujisaku/javasaveimage/imageio/ISaveImageWithDPI.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/harujisaku/javasaveimage/imageio/NetImage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/harujisaku/javasaveimage/imageio/SaveImageWithDPI.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/harujisaku/javasaveimage/imageio/SaveJPEGImageWithDPI.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/harujisaku/javasaveimage/imageio/SaveJPGImageWithDPI.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/harujisaku/javasaveimage/imageio/SavePNGImageWithDPI.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/harujisaku/javasaveimage/imageio/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/harujisaku/javasaveimage/imageio/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/harujisaku/javasaveimage/net/HTMLConnection.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/harujisaku/javasaveimage/net/ImageConnection.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/harujisaku/javasaveimage/net/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/harujisaku/javasaveimage/net/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/harujisaku/javasaveimage/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/harujisaku/javasaveimage/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/harujisaku/javasaveimage/util/IRunOption.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/harujisaku/javasaveimage/util/Message.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/harujisaku/javasaveimage/util/Option.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/harujisaku/javasaveimage/util/OptionArgs.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/harujisaku/javasaveimage/util/OptionIllegalArgumentException.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/harujisaku/javasaveimage/util/OptionIndexOutOfBoundsException.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/harujisaku/javasaveimage/util/OptionManager.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/harujisaku/javasaveimage/util/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/harujisaku/javasaveimage/util/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/help-doc.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/index-files/index-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/index-files/index-10.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/index-files/index-11.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/index-files/index-12.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/index-files/index-13.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/index-files/index-14.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/index-files/index-15.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/index-files/index-16.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/index-files/index-17.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/index-files/index-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/index-files/index-3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/index-files/index-4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/index-files/index-5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/index-files/index-6.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/index-files/index-7.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/index-files/index-8.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/index-files/index-9.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/jquery/external/jquery/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/jquery/images/ui-bg_glass_55_fbf9ee_1x400.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/jquery/images/ui-bg_glass_65_dadada_1x400.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/jquery/images/ui-bg_glass_75_dadada_1x400.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/jquery/images/ui-bg_glass_75_e6e6e6_1x400.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/jquery/images/ui-bg_glass_95_fef1ec_1x400.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/jquery/images/ui-bg_highlight-soft_75_cccccc_1x100.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/jquery/images/ui-icons_222222_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/jquery/images/ui-icons_2e83ff_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/jquery/images/ui-icons_454545_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/jquery/images/ui-icons_888888_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/jquery/images/ui-icons_cd0a0a_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/jquery/jquery-3.5.1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/jquery/jquery-ui.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/jquery/jquery-ui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/jquery/jquery-ui.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/jquery/jquery-ui.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/jquery/jquery-ui.structure.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/jquery/jquery-ui.structure.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/jquery/jszip-utils/dist/jszip-utils-ie.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/jquery/jszip-utils/dist/jszip-utils-ie.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/jquery/jszip-utils/dist/jszip-utils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/jquery/jszip-utils/dist/jszip-utils.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/jquery/jszip/dist/jszip.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/jquery/jszip/dist/jszip.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/member-search-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/overview-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/overview-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/package-search-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/resources/glass.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/resources/x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/search.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/serialized-form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/stylesheet.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/type-search-index.js" afterDir="false" />
+    <list default="true" id="cfe5ac0c-2019-418c-b5bb-04fb44dcd40b" name="Default Changelist" comment="update gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/JavaImageSave.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/JavaImageSave.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/JavaSaveImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/JavaSaveImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/imageio/AutoRotateImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/imageio/AutoRotateImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/imageio/ISaveImageWithDPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/imageio/ISaveImageWithDPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/imageio/NetImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/imageio/NetImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/imageio/SaveImageWithDPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/imageio/SaveImageWithDPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/imageio/SaveJPEGImageWithDPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/imageio/SaveJPEGImageWithDPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/imageio/SaveJPGImageWithDPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/imageio/SaveJPGImageWithDPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/imageio/SavePNGImageWithDPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/imageio/SavePNGImageWithDPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/net/HTMLConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/net/HTMLConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/net/ImageConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/net/ImageConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/util/IRunOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/util/IRunOption.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/util/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/util/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/util/Option.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/util/Option.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/util/OptionArgs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/util/OptionArgs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/util/OptionIllegalArgumentException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/util/OptionIllegalArgumentException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/util/OptionIndexOutOfBoundsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/util/OptionIndexOutOfBoundsException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/harujisaku/javasaveimage/util/OptionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/harujisaku/javasaveimage/util/OptionManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+      <option value="module" />
+    </option>
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -328,6 +232,8 @@
       <workItem from="1633063285042" duration="283000" />
       <workItem from="1633065637582" duration="5747000" />
       <workItem from="1633155183836" duration="10918000" />
+      <workItem from="1633166472371" duration="511000" />
+      <workItem from="1633455359683" duration="666000" />
     </task>
     <task id="LOCAL-00001" summary="軽微な修正、getHTMLを移動">
       <created>1628132081981</created>
@@ -371,7 +277,21 @@
       <option name="project" value="LOCAL" />
       <updated>1632957597185</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="javadocを追記">
+      <created>1633166551603</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1633166551604</updated>
+    </task>
+    <task id="LOCAL-00008" summary="update gitignore">
+      <created>1633166818146</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1633166818146</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -408,7 +328,9 @@
     <MESSAGE value="クラスを分けた" />
     <MESSAGE value="不要なメッセージを削除" />
     <MESSAGE value="NetImage.getName()の扱いを変更。" />
-    <option name="LAST_COMMIT_MESSAGE" value="NetImage.getName()の扱いを変更。" />
+    <MESSAGE value="javadocを追記" />
+    <MESSAGE value="update gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="update gitignore" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
